@@ -133,7 +133,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="6oV-nQ-nbi"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Watchlist" id="VKD-qP-rYg"/>
+                    <navigationItem key="navigationItem" title="Watchlist" id="VKD-qP-rYg">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="5mN-Es-hO4">
+                            <connections>
+                                <segue destination="MnF-u0-jH2" kind="presentation" id="4YC-TH-zzw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WKo-sD-hmG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -149,10 +155,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="1QO-4U-hdK"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Xhp-ZJ-i1o"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m99-bs-msE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="901" y="752"/>
+            <point key="canvasLocation" x="1793" y="826"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Cep-H0-PhB">
