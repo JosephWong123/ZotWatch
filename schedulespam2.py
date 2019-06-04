@@ -3,8 +3,9 @@ import time
 import os
 import re
 import datetime
+import json
 
-data = {'Submit': 'Display Text Results', 'YearTerm': '2019-92', 'ShowComments': 'off', 'ShowFinals': 'off', 'Breadth': 'ANY', 'Dept': 'I&C SCI', 'Division': 'ANY', 'CourseNum': '46', 'FullCourses': 'SkipFull'}
+data = {'Submit': 'Display Text Results', 'YearTerm': '2019-92', 'ShowComments': 'off', 'ShowFinals': 'off', 'Breadth': 'ANY', 'Dept': 'COMPSCI', 'Division': 'ANY', 'CourseNum': '121', 'FullCourses': 'SkipFull'}
 
 # def notify(title, text):
 #     os.system("""
@@ -17,19 +18,19 @@ notified = False
 while not avail:
     r = requests.get('https://www.reg.uci.edu/perl/WebSoc', params=data)
     found = False
-    # print(r.text)
 
     # course_codes = ['44294', '44295']
     # check_list = [c in r.text for c in course_codes]
     for line in r.text.splitlines():
         line = line.strip()
         elements = re.split(r'\s+', line)
+        print(line, "-------------\n")
 
-        if len(elements) >= 2 and elements[0] == "35540":
+        if len(elements) >= 2 and elements[0] == "34040":
             found = (elements[len(elements)-1] == "OPEN")
 
             if found and not notified:
-                notify("ICS 46", "Pattis Lecture available")
+                # notify("ICS 46", "Pattis Lecture available")
                 print(datetime.datetime.now(), "Available", sep=': ')
                 notified = True
 
