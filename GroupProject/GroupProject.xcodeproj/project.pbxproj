@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		255C09D2149ECA7B94E79882 /* Pods_GroupProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B45AF0E6019B8D6A6D183E3 /* Pods_GroupProject.framework */; };
+		444619D722A721EC00FF5359 /* GetCourseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444619D622A721EC00FF5359 /* GetCourseInfo.swift */; };
+		4481913E22A72B7700FC30A4 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4481913D22A72B7700FC30A4 /* Course.swift */; };
+		4481914122A72BF700FC30A4 /* CourseSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4481914022A72BF700FC30A4 /* CourseSection.swift */; };
 		AB3B9EE05FC7031FAFEE3043 /* Pods_GroupProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FD2DD045A11A2173A211D24 /* Pods_GroupProjectUITests.framework */; };
 		CF3A4E8B22A4765D00C32785 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3A4E8A22A4765D00C32785 /* AppDelegate.swift */; };
 		CF3A4E8D22A4765D00C32785 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3A4E8C22A4765D00C32785 /* ViewController.swift */; };
@@ -39,6 +42,9 @@
 /* Begin PBXFileReference section */
 		1BD7D42387D3C26807DA8C23 /* Pods-GroupProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupProjectTests.release.xcconfig"; path = "Target Support Files/Pods-GroupProjectTests/Pods-GroupProjectTests.release.xcconfig"; sourceTree = "<group>"; };
 		3B45AF0E6019B8D6A6D183E3 /* Pods_GroupProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroupProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		444619D622A721EC00FF5359 /* GetCourseInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCourseInfo.swift; sourceTree = "<group>"; };
+		4481913D22A72B7700FC30A4 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		4481914022A72BF700FC30A4 /* CourseSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseSection.swift; sourceTree = "<group>"; };
 		45424EBFF72E4325FD1C12A7 /* Pods_GroupProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroupProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6237D86D53F27CA5D8EF065A /* Pods-GroupProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupProject.release.xcconfig"; path = "Target Support Files/Pods-GroupProject/Pods-GroupProject.release.xcconfig"; sourceTree = "<group>"; };
 		667A717F737695A0D8215CE9 /* Pods-GroupProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupProject.debug.xcconfig"; path = "Target Support Files/Pods-GroupProject/Pods-GroupProject.debug.xcconfig"; sourceTree = "<group>"; };
@@ -89,6 +95,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4481913F22A72BE600FC30A4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4481913D22A72B7700FC30A4 /* Course.swift */,
+				4481914022A72BF700FC30A4 /* CourseSection.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		A23C15D70883F29777107CA4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,7 +124,6 @@
 				B0899E39411FE3D7DE7678F5 /* Pods-GroupProjectUITests.debug.xcconfig */,
 				F6E238D60E72658030FFF1D0 /* Pods-GroupProjectUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -139,6 +153,8 @@
 			isa = PBXGroup;
 			children = (
 				CF3A4E8A22A4765D00C32785 /* AppDelegate.swift */,
+				444619D622A721EC00FF5359 /* GetCourseInfo.swift */,
+				4481913F22A72BE600FC30A4 /* Models */,
 				CF3A4E8C22A4765D00C32785 /* ViewController.swift */,
 				CF3A4E8E22A4765D00C32785 /* Main.storyboard */,
 				CF3A4E9122A4765F00C32785 /* Assets.xcassets */,
@@ -369,8 +385,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4481913E22A72B7700FC30A4 /* Course.swift in Sources */,
 				CF3A4E8D22A4765D00C32785 /* ViewController.swift in Sources */,
+				444619D722A721EC00FF5359 /* GetCourseInfo.swift in Sources */,
 				CF3A4E8B22A4765D00C32785 /* AppDelegate.swift in Sources */,
+				4481914122A72BF700FC30A4 /* CourseSection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
