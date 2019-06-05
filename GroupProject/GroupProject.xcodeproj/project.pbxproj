@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		255C09D2149ECA7B94E79882 /* Pods_GroupProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B45AF0E6019B8D6A6D183E3 /* Pods_GroupProject.framework */; };
-		2AF806EE22A75C06008B6D4E /* department_names.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2AF806ED22A75C06008B6D4E /* department_names.txt */; };
+		2A84FAF722A79794001D4D30 /* department_names.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2A84FAF622A79793001D4D30 /* department_names.txt */; };
 		2AF806F722A7623C008B6D4E /* DepartmentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF806F622A7623C008B6D4E /* DepartmentsTableViewController.swift */; };
 		2AF806F922A778A4008B6D4E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF806F822A778A4008B6D4E /* SearchViewController.swift */; };
 		AB3B9EE05FC7031FAFEE3043 /* Pods_GroupProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FD2DD045A11A2173A211D24 /* Pods_GroupProjectUITests.framework */; };
@@ -41,7 +41,7 @@
 
 /* Begin PBXFileReference section */
 		1BD7D42387D3C26807DA8C23 /* Pods-GroupProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupProjectTests.release.xcconfig"; path = "Target Support Files/Pods-GroupProjectTests/Pods-GroupProjectTests.release.xcconfig"; sourceTree = "<group>"; };
-		2AF806ED22A75C06008B6D4E /* department_names.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = department_names.txt; path = ../../../../../../Desktop/department_names.txt; sourceTree = "<group>"; };
+		2A84FAF622A79793001D4D30 /* department_names.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = department_names.txt; sourceTree = "<group>"; };
 		2AF806F622A7623C008B6D4E /* DepartmentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentsTableViewController.swift; sourceTree = "<group>"; };
 		2AF806F822A778A4008B6D4E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		3B45AF0E6019B8D6A6D183E3 /* Pods_GroupProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroupProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,12 +95,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2AF806EC22A75BE8008B6D4E /* TextFiles */ = {
+		2A84FAF522A79793001D4D30 /* TextFiles */ = {
 			isa = PBXGroup;
 			children = (
-				2AF806ED22A75C06008B6D4E /* department_names.txt */,
+				2A84FAF622A79793001D4D30 /* department_names.txt */,
 			);
-			path = TextFiles;
+			name = TextFiles;
+			path = ../../../../Desktop/TextFiles;
 			sourceTree = "<group>";
 		};
 		A23C15D70883F29777107CA4 /* Frameworks */ = {
@@ -129,6 +130,7 @@
 		CF3A4E7E22A4765D00C32785 = {
 			isa = PBXGroup;
 			children = (
+				2A84FAF522A79793001D4D30 /* TextFiles */,
 				CF3A4E8922A4765D00C32785 /* GroupProject */,
 				CF3A4E9E22A4765F00C32785 /* GroupProjectTests */,
 				CF3A4EA922A4765F00C32785 /* GroupProjectUITests */,
@@ -151,7 +153,6 @@
 		CF3A4E8922A4765D00C32785 /* GroupProject */ = {
 			isa = PBXGroup;
 			children = (
-				2AF806EC22A75BE8008B6D4E /* TextFiles */,
 				CF3A4E8A22A4765D00C32785 /* AppDelegate.swift */,
 				CF3A4E8C22A4765D00C32785 /* ViewController.swift */,
 				CF3A4E8E22A4765D00C32785 /* Main.storyboard */,
@@ -291,7 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF3A4E9522A4765F00C32785 /* LaunchScreen.storyboard in Resources */,
-				2AF806EE22A75C06008B6D4E /* department_names.txt in Resources */,
+				2A84FAF722A79794001D4D30 /* department_names.txt in Resources */,
 				CF3A4E9222A4765F00C32785 /* Assets.xcassets in Resources */,
 				CF3A4E9022A4765D00C32785 /* Main.storyboard in Resources */,
 			);
