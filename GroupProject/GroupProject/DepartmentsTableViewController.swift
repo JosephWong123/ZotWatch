@@ -24,6 +24,8 @@ class DepartmentsTableViewController: UITableViewController
     {
         super.viewDidLoad()
         
+        
+        // THIS PASSES THE LINES FROM department_names.txt INTO AN ARRAY
         let bundle = Bundle.main
         let path = bundle.path(forResource: "department_names", ofType: "txt")
         
