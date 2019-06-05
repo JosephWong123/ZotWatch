@@ -164,11 +164,8 @@
                                 <state key="normal" title="Add">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <action selector="onAdd:" destination="MnF-u0-jH2" eventType="touchUpInside" id="eKW-ap-AsA"/>
-                                </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aIk-kf-dRW">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="aIk-kf-dRW">
                                 <rect key="frame" x="69" y="342.5" width="276" height="40"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -208,6 +205,7 @@
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="6ju-fs-oxU" firstAttribute="width" secondItem="ii6-pk-pFM" secondAttribute="width" multiplier="1:1.5" id="48I-cW-pUy"/>
                             <constraint firstItem="kcF-Eo-isa" firstAttribute="leading" secondItem="aIk-kf-dRW" secondAttribute="leading" id="4IO-Ea-ekZ"/>
@@ -229,6 +227,9 @@
                             <constraint firstItem="aIk-kf-dRW" firstAttribute="top" secondItem="kcF-Eo-isa" secondAttribute="bottom" constant="8" id="xbX-Cx-LWH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1QO-4U-hdK"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="ked-5l-EW6" appends="YES" id="ah2-PR-09y"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="Xhp-ZJ-i1o"/>
                     <connections>
@@ -237,6 +238,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m99-bs-msE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ked-5l-EW6"/>
             </objects>
             <point key="canvasLocation" x="2955" y="138"/>
         </scene>

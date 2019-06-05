@@ -8,6 +8,18 @@
 
 import UIKit
 
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tapGesture = UITapGestureRecognizer(target: self,
+                                                action: #selector(hideKeyboard))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func hideKeyboard() {
+        view.endEditing(true)
+    }
+}
+
 class SearchViewController: UIViewController, DataEnteredDelegate
 {
 
@@ -17,7 +29,11 @@ class SearchViewController: UIViewController, DataEnteredDelegate
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        hideKeyboardWhenTappedAround()
+        
     }
+
     
     func userDidEnterInformation(info: NSString)
     {
