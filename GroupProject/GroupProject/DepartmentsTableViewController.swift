@@ -8,8 +8,16 @@
 
 import UIKit
 
+protocol DataEnteredDelegate
+{
+    func userDidEnterInformation(info:NSString)
+}
+
 class DepartmentsTableViewController: UITableViewController
 {
+    
+    var delegate:DataEnteredDelegate? = nil
+    
     var arrayDepartments = NSMutableArray()
     
     override func viewDidLoad()
@@ -32,7 +40,7 @@ class DepartmentsTableViewController: UITableViewController
                     arrayDepartments.add(readings[i])
                 }
                 
-                print(arrayDepartments)
+                //print(arrayDepartments)
                 
             }
             catch let error as NSError
@@ -43,16 +51,19 @@ class DepartmentsTableViewController: UITableViewController
         
     }
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int
+    {
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
         // #warning Incomplete implementation, return the number of rows
         return arrayDepartments.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "DepartmentCell", for: indexPath)
         
@@ -63,5 +74,24 @@ class DepartmentsTableViewController: UITableViewController
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        
+        let department = arrayDepartments[indexPath.row]
+        
+        if (delegate != nil)
+        {
+            let information:NSString = department as! NSString
+            delegate!.userDidEnterInformation(info: information)
+            
+            self.navigationController?.popViewController(animated: true)
+        }
+        
+        dismiss(animated: true, completion: nil)
+        
+    }
 
+    
+    
 }

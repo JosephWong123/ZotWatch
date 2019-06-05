@@ -149,7 +149,7 @@
         <!--SearchViewController-->
         <scene sceneID="fsp-MC-Z7b">
             <objects>
-                <viewController id="MnF-u0-jH2" userLabel="SearchViewController" sceneMemberID="viewController">
+                <viewController id="MnF-u0-jH2" userLabel="SearchViewController" customClass="SearchViewController" customModule="GroupProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ii6-pk-pFM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -164,6 +164,9 @@
                                 <state key="normal" title="Add">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="onAdd:" destination="MnF-u0-jH2" eventType="touchUpInside" id="eKW-ap-AsA"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aIk-kf-dRW">
                                 <rect key="frame" x="69" y="342.5" width="276" height="40"/>
@@ -194,7 +197,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="CLe-lD-9sB" kind="presentation" identifier="addDepartment" id="ooK-wN-JWR"/>
+                                    <segue destination="CLe-lD-9sB" kind="show" identifier="addDept" id="Zev-qp-S1E"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BVO-ZO-ibQ">
@@ -228,10 +231,14 @@
                         <viewLayoutGuide key="safeArea" id="1QO-4U-hdK"/>
                     </view>
                     <navigationItem key="navigationItem" id="Xhp-ZJ-i1o"/>
+                    <connections>
+                        <outlet property="courseCodeTextField" destination="aIk-kf-dRW" id="r17-Os-lsq"/>
+                        <outlet property="departmentNameTextField" destination="BVO-ZO-ibQ" id="uTM-JV-rbq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m99-bs-msE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2974" y="138"/>
+            <point key="canvasLocation" x="2955" y="138"/>
         </scene>
         <!--Departments Table View Controller-->
         <scene sceneID="vV5-0T-eCM">
@@ -272,10 +279,11 @@
                             <outlet property="delegate" destination="CLe-lD-9sB" id="M5x-bg-cJd"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="gEi-ge-Wye"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXH-gF-xEF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3751" y="138"/>
+            <point key="canvasLocation" x="3774" y="138"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Cep-H0-PhB">
