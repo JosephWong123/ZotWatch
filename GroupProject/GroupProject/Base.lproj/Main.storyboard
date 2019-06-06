@@ -135,7 +135,11 @@
                         <viewLayoutGuide key="safeArea" id="6oV-nQ-nbi"/>
                     </view>
                     <navigationItem key="navigationItem" title="Watchlist" id="VKD-qP-rYg">
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="5mN-Es-hO4"/>
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="5mN-Es-hO4">
+                            <connections>
+                                <segue destination="MnF-u0-jH2" kind="show" id="2nx-pU-dnF"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WKo-sD-hmG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -151,7 +155,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ju-fs-oxU">
-                                <rect key="frame" x="69" y="433" width="276" height="40"/>
+                                <rect key="frame" x="69" y="455" width="276" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.81346529720000005" blue="0.50836896899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="tNN-gb-vQg"/>
@@ -162,19 +166,19 @@
                                 </state>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="aIk-kf-dRW">
-                                <rect key="frame" x="69" y="342.5" width="276" height="40"/>
+                                <rect key="frame" x="69" y="360" width="276" height="40"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcF-Eo-isa">
-                                <rect key="frame" x="69" y="313.5" width="276" height="21"/>
+                                <rect key="frame" x="69" y="331" width="276" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="icn-Zf-IZJ">
-                                <rect key="frame" x="69" y="173.5" width="276" height="40"/>
+                                <rect key="frame" x="69" y="191" width="276" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Choose Department">
@@ -185,7 +189,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BVO-ZO-ibQ">
-                                <rect key="frame" x="69" y="228.5" width="276" height="40"/>
+                                <rect key="frame" x="69" y="246" width="276" height="40"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -218,7 +222,7 @@
                             <outletCollection property="gestureRecognizers" destination="ked-5l-EW6" appends="YES" id="ah2-PR-09y"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" id="Xhp-ZJ-i1o"/>
+                    <navigationItem key="navigationItem" title="Search" id="Xhp-ZJ-i1o"/>
                     <connections>
                         <outlet property="courseCodeTextField" destination="aIk-kf-dRW" id="r17-Os-lsq"/>
                         <outlet property="departmentNameTextField" destination="BVO-ZO-ibQ" id="uTM-JV-rbq"/>

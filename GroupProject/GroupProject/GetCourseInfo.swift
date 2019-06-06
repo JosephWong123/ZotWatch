@@ -6,6 +6,7 @@
 //  Copyright © 2019 Kinaar Desai. All rights reserved.
 //
 
+/*
 import Foundation
 
 class GetCourseInfo {
@@ -94,3 +95,4 @@ class GetCourseInfo {
         task.resume()
     }
 }
+*/

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		255C09D2149ECA7B94E79882 /* Pods_GroupProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B45AF0E6019B8D6A6D183E3 /* Pods_GroupProject.framework */; };
+		2A8B443822A8F73D00E00C2B /* department_names.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2A8B443722A8F73D00E00C2B /* department_names.txt */; };
 		2AC34F1F22A8F555004195C3 /* GetCourseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC34F1E22A8F555004195C3 /* GetCourseInfo.swift */; };
 		2AF806F722A7623C008B6D4E /* DepartmentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF806F622A7623C008B6D4E /* DepartmentsTableViewController.swift */; };
 		2AF806F922A778A4008B6D4E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF806F822A778A4008B6D4E /* SearchViewController.swift */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		1BD7D42387D3C26807DA8C23 /* Pods-GroupProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupProjectTests.release.xcconfig"; path = "Target Support Files/Pods-GroupProjectTests/Pods-GroupProjectTests.release.xcconfig"; sourceTree = "<group>"; };
+		2A8B443722A8F73D00E00C2B /* department_names.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = department_names.txt; sourceTree = "<group>"; };
 		2AC34F1E22A8F555004195C3 /* GetCourseInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCourseInfo.swift; sourceTree = "<group>"; };
 		2AF806F622A7623C008B6D4E /* DepartmentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentsTableViewController.swift; sourceTree = "<group>"; };
 		2AF806F822A778A4008B6D4E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				2AC34F1E22A8F555004195C3 /* GetCourseInfo.swift */,
 				2AF806F822A778A4008B6D4E /* SearchViewController.swift */,
 				CF3A4E8C22A4765D00C32785 /* ViewController.swift */,
+				2A8B443722A8F73D00E00C2B /* department_names.txt */,
 				CF3A4E9122A4765F00C32785 /* Assets.xcassets */,
 				CF3A4E9322A4765F00C32785 /* LaunchScreen.storyboard */,
 				CF3A4E8E22A4765D00C32785 /* Main.storyboard */,
@@ -283,7 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF3A4E9522A4765F00C32785 /* LaunchScreen.storyboard in Resources */,
-				2AC34F2722A8F667004195C3 /* department_names.txt in Resources */,
+				2A8B443822A8F73D00E00C2B /* department_names.txt in Resources */,
 				CF3A4E9222A4765F00C32785 /* Assets.xcassets in Resources */,
 				CF3A4E9022A4765D00C32785 /* Main.storyboard in Resources */,
 			);
