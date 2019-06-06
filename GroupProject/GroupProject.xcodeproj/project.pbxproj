@@ -141,7 +141,6 @@
 		CF3A4E8922A4765D00C32785 /* GroupProject */ = {
 			isa = PBXGroup;
 			children = (
-				2A6D483F22A8DCA60010298D /* department_names.txt */,
 				CF3A4E8A22A4765D00C32785 /* AppDelegate.swift */,
 				CF3A4E8C22A4765D00C32785 /* ViewController.swift */,
 				CF3A4E8E22A4765D00C32785 /* Main.storyboard */,

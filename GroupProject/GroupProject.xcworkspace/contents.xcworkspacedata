@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/atefkaibenothman/Documents/projects/ZotWatch/GroupProject/GroupProject/department_names.txt">
-   </FileRef>
-   <FileRef
       location = "group:GroupProject.xcodeproj">
    </FileRef>
    <FileRef
