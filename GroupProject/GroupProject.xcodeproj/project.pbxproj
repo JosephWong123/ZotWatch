@@ -38,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		1BD7D42387D3C26807DA8C23 /* Pods-GroupProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupProjectTests.release.xcconfig"; path = "Target Support Files/Pods-GroupProjectTests/Pods-GroupProjectTests.release.xcconfig"; sourceTree = "<group>"; };
+		2A6D483F22A8DCA60010298D /* department_names.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = department_names.txt; path = /Users/atefkaibenothman/Documents/projects/ZotWatch/GroupProject/GroupProject/department_names.txt; sourceTree = "<absolute>"; };
 		3B45AF0E6019B8D6A6D183E3 /* Pods_GroupProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroupProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45424EBFF72E4325FD1C12A7 /* Pods_GroupProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroupProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6237D86D53F27CA5D8EF065A /* Pods-GroupProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupProject.release.xcconfig"; path = "Target Support Files/Pods-GroupProject/Pods-GroupProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -109,7 +110,6 @@
 				B0899E39411FE3D7DE7678F5 /* Pods-GroupProjectUITests.debug.xcconfig */,
 				F6E238D60E72658030FFF1D0 /* Pods-GroupProjectUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -138,6 +138,7 @@
 		CF3A4E8922A4765D00C32785 /* GroupProject */ = {
 			isa = PBXGroup;
 			children = (
+				2A6D483F22A8DCA60010298D /* department_names.txt */,
 				CF3A4E8A22A4765D00C32785 /* AppDelegate.swift */,
 				CF3A4E8C22A4765D00C32785 /* ViewController.swift */,
 				CF3A4E8E22A4765D00C32785 /* Main.storyboard */,
