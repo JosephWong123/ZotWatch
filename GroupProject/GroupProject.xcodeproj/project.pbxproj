@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		255C09D2149ECA7B94E79882 /* Pods_GroupProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B45AF0E6019B8D6A6D183E3 /* Pods_GroupProject.framework */; };
+		2A73206C22A8F9B40052E6B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A73206B22A8F9B40052E6B5 /* Assets.xcassets */; };
 		2A8B443822A8F73D00E00C2B /* department_names.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2A8B443722A8F73D00E00C2B /* department_names.txt */; };
 		2AC34F1F22A8F555004195C3 /* GetCourseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC34F1E22A8F555004195C3 /* GetCourseInfo.swift */; };
 		2AF806F722A7623C008B6D4E /* DepartmentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF806F622A7623C008B6D4E /* DepartmentsTableViewController.swift */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		1BD7D42387D3C26807DA8C23 /* Pods-GroupProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupProjectTests.release.xcconfig"; path = "Target Support Files/Pods-GroupProjectTests/Pods-GroupProjectTests.release.xcconfig"; sourceTree = "<group>"; };
+		2A73206B22A8F9B40052E6B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = GroupProject/Assets.xcassets; sourceTree = "<group>"; };
 		2A8B443722A8F73D00E00C2B /* department_names.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = department_names.txt; sourceTree = "<group>"; };
 		2AC34F1E22A8F555004195C3 /* GetCourseInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCourseInfo.swift; sourceTree = "<group>"; };
 		2AF806F622A7623C008B6D4E /* DepartmentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentsTableViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 		CF3A4E7E22A4765D00C32785 = {
 			isa = PBXGroup;
 			children = (
+				2A73206B22A8F9B40052E6B5 /* Assets.xcassets */,
 				CF3A4E8922A4765D00C32785 /* GroupProject */,
 				CF3A4E9E22A4765F00C32785 /* GroupProjectTests */,
 				CF3A4EA922A4765F00C32785 /* GroupProjectUITests */,
@@ -289,6 +292,7 @@
 				2A8B443822A8F73D00E00C2B /* department_names.txt in Resources */,
 				CF3A4E9222A4765F00C32785 /* Assets.xcassets in Resources */,
 				CF3A4E9022A4765D00C32785 /* Main.storyboard in Resources */,
+				2A73206C22A8F9B40052E6B5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
