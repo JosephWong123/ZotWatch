@@ -18,15 +18,16 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
     func getCourses(){
         let defaults = UserDefaults.standard
         let numTracking = defaults.integer(forKey: "numClasses")
-        let numAsString = String(numTracking)
-        let code = "Class" + numAsString
+        
         
         for x in 0...numTracking {
-            let courseCode = defaults.string(forKey: "code")!
+            let numAsString = String(x)
+            let code = "Class" + numAsString
+            let courseCode = defaults.string(forKey: code)!
             watchCodes.append(courseCode)
         }
         for c in watchCodes {
-            GetCourseInfo.findByCode(quarter: defaults.string(forKey: "quarter")!, year: defaults.string(forKey: "year")!, code: code, success: { (section) in
+            GetCourseInfo.findByCode(quarter: defaults.string(forKey: "quarter")!, year: defaults.string(forKey: "year")!, code: c, success: { (section) in
                 self.watched.append(section)
             }) { (Error) in
                 print(Error)
