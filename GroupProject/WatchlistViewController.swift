@@ -17,8 +17,7 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
         UserDefaults.standard.removeObject(forKey: "watchList1")
         let bs = UserDefaults.standard.array(forKey: "watchList2") as? [NSDictionary] ?? [NSDictionary]()
         watched = bs
-        print((UserDefaults.standard.dictionaryRepresentation() as NSDictionary).allKeys)
-        print((UserDefaults.standard.dictionaryRepresentation() as NSDictionary).allValues)
+        
         //reads NSUserDefaults for all the dictionaries saved in the watchlist
         //calls GetCourseInfo.findSection() for all the dictionaries and added to watched dictionary
         //displays
@@ -33,7 +32,8 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.delegate = self
         tableView.dataSource = self
         tableView.reloadData()
-        
+        print((UserDefaults.standard.dictionaryRepresentation() as NSDictionary).allKeys)
+        print((UserDefaults.standard.dictionaryRepresentation() as NSDictionary).allValues)
         // Do any additional setup after loading the view.
     }
     
