@@ -6,14 +6,14 @@
 //  Copyright © 2019 Kinaar Desai. All rights reserved.
 //
 
-/*
+
 import Foundation
 
 class GetCourseInfo {
-    static var url = URLComponents(string: "https://www.reg.uci.edu/perl/WebSoc")!
+    static var url = URLComponents(string: "https:www.reg.uci.edu/perl/WebSoc")!
     
-    // var courses = [Course]()
-    
+    var courses = [Course]()
+ 
     static func findSection(quarter: Int, year: Int, dept: String, courseNum: String, success: @escaping (([CourseSection]) -> ()), failure: @escaping (Error) -> ()) {
         let data = ["Submit": "Display Text Results", "YearTerm": String(year) + "-" + String(quarter),
             "Breadth": "ANY", "Dept": dept, "Division": "ANY", "CourseNum": courseNum]
@@ -43,7 +43,7 @@ class GetCourseInfo {
                     
                     if (Int(elements[0]) != nil) {
                         elements = elements.filter { $0 != "" }
-                        // print(elements)
+                         print(elements)
                         if (elements[4].last! == ",") {
                             elements[4] = String(elements[4].dropLast())
                         }
@@ -55,16 +55,16 @@ class GetCourseInfo {
         }
         task.resume()
     }
-    
+ 
     static func findCourses(quarter: Int, year: Int, dept: String, success: @escaping (([Course]) -> ()),
                             failure: @escaping ((Error) -> ())) {
         let data = ["Submit": "Display Text Results", "YearTerm": String(year) + "-" + String(quarter),
                     "Breadth": "ANY", "Dept": dept, "Division": "ANY"]
-        
+ 
         url.queryItems = data.map { (key, value) in
             URLQueryItem(name: key, value: value)
         }
-        
+ 
         let task = URLSession.shared.dataTask(with: url.url!) { data, response, error in
             var lines = [String]()
             var courses = [Course]()
@@ -95,4 +95,4 @@ class GetCourseInfo {
         task.resume()
     }
 }
-*/
+
