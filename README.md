@@ -50,7 +50,6 @@ Keeps track of classes that a user is interested in enrolling in at UCI. Makes i
     * Lists all the lectures, discussion, and lab sections for the corresponding course
     * User can choose a section to add to their watch list
 
-
 ### 3. Navigation
 
 **Tab Navigation** (Tab to Screen)
@@ -75,7 +74,7 @@ Keeps track of classes that a user is interested in enrolling in at UCI. Makes i
 [Add picture of your hand sketched wireframes in this section]
 <img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
 
-## Schema 
+## Schema
 [This section will be completed in Unit 9]
 ### Models
 Course
