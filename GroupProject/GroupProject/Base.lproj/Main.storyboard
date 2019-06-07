@@ -224,12 +224,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-<<<<<<< HEAD
                     <connections>
-                        <outlet property="tableView" destination="2Uh-ef-tWA" id="fXV-eX-IEl"/>
+                        <outlet property="tableView" destination="2Uh-ef-tWA" id="fJK-jQ-qTD"/>
                     </connections>
-=======
->>>>>>> fe40b8fdbca7febc1eb5291700cae43f6070f4ae
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WKo-sD-hmG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
