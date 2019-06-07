@@ -31,6 +31,16 @@ class SearchViewController: UIViewController, DataEnteredDelegate
         super.viewDidLoad()
         
         hideKeyboardWhenTappedAround()
+//        GetCourseInfo.findCourses(quarter: 92, year: 2019, dept: "COMPSCI", success: { courseArray in
+//            for cours in courseArray {
+//                print(cours.courseNum3)
+//                print(cours.courseTitle3)
+//
+//            }
+//
+//        }) { (Error) in
+//            print("\(Error)")
+//        }
         
     }
 
