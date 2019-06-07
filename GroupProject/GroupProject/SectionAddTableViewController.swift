@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import SQLite3
 
 class SectionAddTableViewController: UITableViewController {
     
+    var db: OpaquePointer?
     var sectionDict: [String:String] = [:]
     var sections: [CourseSection] = []
     
@@ -25,14 +27,9 @@ class SectionAddTableViewController: UITableViewController {
         }) { (error) in
             print(error)
         }
+        UserDefaults.standard.set(sectionDict["quarter"], forKey: "quarter")
+        UserDefaults.standard.set(sectionDict["year"], forKey: "year")
         
-        
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
@@ -50,6 +47,7 @@ class SectionAddTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SectionCell", for: indexPath) as! SectionTableViewCell
         
+        
         cell.titleLabel.text = sectionDict["courseTitle"]
         cell.codeLabel.text = sections[indexPath.row].courseCode
         cell.dayLabel.text = sections[indexPath.row].days
@@ -60,7 +58,7 @@ class SectionAddTableViewController: UITableViewController {
         cell.placeLabel.text = sections[indexPath.row].place
         cell.statusLabel.text = sections[indexPath.row].status
         
-        let current = sections[indexPath.row]
+        // let current = sections[indexPath.row]
         // Configure the cell...
 
         return cell
@@ -68,38 +66,15 @@ class SectionAddTableViewController: UITableViewController {
     
     // urgent need to fix!! -Joseph
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var dataDict = [String:Any]()
-        dataDict["courseCode"] = sections[indexPath.row].courseCode
-        dataDict["days"] = sections[indexPath.row].days
-        dataDict["time"] = sections[indexPath.row].time
-        dataDict["instructor"] = sections[indexPath.row].instructor
-        dataDict["type"] = sections[indexPath.row].type
-        dataDict["section"] = sections[indexPath.row].section
-        dataDict["place"] = sections[indexPath.row].place
-        dataDict["statusstatus"] = sections[indexPath.row].courseCode
-        dataDict["maxSeats"] = sections[indexPath.row].maxSeats
-        dataDict["seatsTaken"] = sections[indexPath.row].seatsTaken
-        dataDict["seatsReserved"] = sections[indexPath.row].seatsReserved
-        dataDict["courseTitle"] = sectionDict["courseTitle"]
+        let defaults = UserDefaults.standard
+        let numTracking = defaults.integer(forKey: "numClasses")
+        let numAsString = String(numTracking)
+        let code = "Class" + numAsString
         
-        let nsDict = dataDict as NSDictionary
-        var contained = false
-        if var currentCourses = UserDefaults.standard.array(forKey: "WatchList2") as? [NSDictionary]{
-            for c in currentCourses {
-                if (c.object(forKey: "courseCode") as? String == dataDict["courseCode"] as? String) {
-                    contained = true
-                }
-            }
-            if (!contained) {
-                currentCourses.append(nsDict)
-            }
-            UserDefaults.standard.set(currentCourses, forKey: "WatchList2")
-        }
-        else {
-            var currentCourses = [NSDictionary]()
-            currentCourses.append(nsDict)
-            UserDefaults.standard.set(currentCourses, forKey: "WatchList2")
-        }
+        defaults.set(sections[indexPath.row].courseCode, forKey: code)
+        
+        let tracking = numTracking + 1
+        defaults.set(tracking, forKey: "numClasses")
         performSegue(withIdentifier: "AddToWatchlist", sender: self)
         
         //create a dictionary of select course section
