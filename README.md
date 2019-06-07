@@ -31,12 +31,12 @@ Keeps track of classes that a user is interested in enrolling in at UCI. Makes i
 
 ### 2. Screen Archetypes
 
-* [list first screen here]
-   * [list associated required story here]
-   * ...
-* [list second screen here]
-   * [list associated required story here]
-   * ...
+* Watch List Screen
+   * User can view the list of classes they are tracking
+   * User can add a class to their tracking list
+* Add Course Screen
+   * User can pick a department, year, and quarter to choose a course from
+
 
 ### 3. Navigation
 
@@ -60,24 +60,23 @@ Keeps track of classes that a user is interested in enrolling in at UCI. Makes i
 <img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
 
 ## Schema 
+[This section will be completed in Unit 9]
 ### Models
 Course
-
 | Property | Type  | Description |
 | -------- | -------- | -------- |
 | dept | String | The department that the course is in |
-| courseNum | String | The department's designation for an approved course |
-| courseTitle | String | The title of the course, describing what the course is about |
+| courseNum | String | The department's designation for an approved course 
+| courseTitle | String | The title of the course, describing what the course is about 
 
 CourseSection
-
 | Property | Type  | Description |
 | -------- | -------- | -------- |
 |courseCode|Int|The section's unique course code, used for adding and dropping from WebReg|
 |type|String|The type of instruction for the course|
-|section|String|The Section number or letter identifier for an individual class|
+|section|String|The Section number or letter identifier for an individual class
 |instructor|String|The name of the instructor teaching the class|
-|days|String|The days on which the class meets|
-|time|String|The meeting time of the class|
-|place|String|The location of where the class meets|
-|status|String|	For the fall, winter and spring terms, this column specifies the current enrollment status for a class: <br>OPEN: The class has not yet reached maximum enrollment capacity. <br> NewOnly: This course only has openings for new students (but the waiting list may still have space for continuing students).<br>Waitl: The class has reached maximum capacity, but there is space on the Waiting List<br>FULL: The class has reached maximum capacity and the Waiting List is either full or not an option|
+|days|String|The days on which the class meets.
+|time|String|The meeting time of the class.
+|place|String|The location of where the class meets.
+|status|String|	For the fall, winter and spring terms, this column specifies the current enrollment status for a class: <br>OPEN: The class has not yet reached maximum enrollment capacity. <br> NewOnly: This course only has openings for new students (but the waiting list may still have space for continuing students).<br>Waitl: The class has reached maximum capacity, but there is space on the Waiting List<br>FULL: The class has reached maximum capacity and the Waiting List is either full or not an option.
