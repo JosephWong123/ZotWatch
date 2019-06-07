@@ -206,9 +206,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="tableView" destination="2Uh-ef-tWA" id="OI6-BU-63F"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WKo-sD-hmG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -299,7 +296,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m99-bs-msE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="ked-5l-EW6"/>
             </objects>
-            <point key="canvasLocation" x="3180" y="138"/>
+            <point key="canvasLocation" x="3626" y="138"/>
         </scene>
         <!--Course Search View Controller-->
         <scene sceneID="4cQ-yx-n1y">
@@ -616,7 +613,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="VKd-xh-TjE"/>
-        <segue reference="EWY-hj-bfz"/>
+        <segue reference="nih-ln-1E9"/>
     </inferredMetricsTieBreakers>
 </document>
