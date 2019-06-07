@@ -33,6 +33,7 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
                 print(Error)
             }
         }
+        tableView.reloadData()
         //reads NSUserDefaults for all the dictionaries saved in the watchlist
         //calls GetCourseInfo.findSection() for all the dictionaries and added to watched dictionary
         //displays
@@ -40,7 +41,13 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WatchListCell", for: indexPath) as! WatchlistTableViewCell
-        
+        cell.profName.text = watched[indexPath.row].instructor
+        cell.courseTime.text = watched[indexPath.row].time
+        cell.classCode.text = watched[indexPath.row].courseCode
+        cell.location.text = watched[indexPath.row].place
+        let seatsAvail = watched[indexPath.row].maxSeats - watched[indexPath.row].seatsTaken - watched[indexPath.row].seatsReserved
+        cell.seatsAvail.text = String(seatsAvail)
+        cell.status.text = watched[indexPath.row].status
         return cell
     }
     
