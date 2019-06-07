@@ -20,7 +20,6 @@ class SectionAddTableViewController: UITableViewController {
         GetCourseInfo.findSection(quarter: sectionDict["quarter"]!, year: sectionDict["year"]!, dept: sectionDict["dept"]!, courseNum: sectionDict["courseNum"]!, success: { (courseSec) in
             for cs in courseSec{
                 self.sections.append(cs)
-                print(cs.courseCode3)
             }
             self.tableView.reloadData()
         }) { (error) in
@@ -44,7 +43,6 @@ class SectionAddTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return self.sections.count
     }
 
@@ -53,28 +51,62 @@ class SectionAddTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SectionCell", for: indexPath) as! SectionTableViewCell
         
         cell.titleLabel.text = sectionDict["courseTitle"]
-        cell.codeLabel.text = sections[indexPath.row].courseCode3
-        cell.dayLabel.text = sections[indexPath.row].days3
-        cell.timeLabel.text = sections[indexPath.row].time3
-        cell.instructorLabel.text = sections[indexPath.row].instructor3
-        cell.typeLabel.text = sections[indexPath.row].type3
-        cell.sectionLabel.text = sections[indexPath.row].section3
-        cell.placeLabel.text = sections[indexPath.row].place3
-        cell.statusLabel.text = sections[indexPath.row].status3
-
+        cell.codeLabel.text = sections[indexPath.row].courseCode
+        cell.dayLabel.text = sections[indexPath.row].days
+        cell.timeLabel.text = sections[indexPath.row].time
+        cell.instructorLabel.text = sections[indexPath.row].instructor
+        cell.typeLabel.text = sections[indexPath.row].type
+        cell.sectionLabel.text = sections[indexPath.row].section
+        cell.placeLabel.text = sections[indexPath.row].place
+        cell.statusLabel.text = sections[indexPath.row].status
+        
+        let current = sections[indexPath.row]
         // Configure the cell...
 
         return cell
     }
     
-    //need to complete this
+    // urgent need to fix!! -Joseph
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print()
+        var dataDict = [String:Any]()
+        dataDict["courseCode"] = sections[indexPath.row].courseCode
+        dataDict["days"] = sections[indexPath.row].days
+        dataDict["time"] = sections[indexPath.row].time
+        dataDict["instructor"] = sections[indexPath.row].instructor
+        dataDict["type"] = sections[indexPath.row].type
+        dataDict["section"] = sections[indexPath.row].section
+        dataDict["place"] = sections[indexPath.row].place
+        dataDict["statusstatus"] = sections[indexPath.row].courseCode
+        dataDict["maxSeats"] = sections[indexPath.row].maxSeats
+        dataDict["seatsTaken"] = sections[indexPath.row].seatsTaken
+        dataDict["seatsReserved"] = sections[indexPath.row].seatsReserved
+        dataDict["courseTitle"] = sectionDict["courseTitle"]
+        
+        let nsDict = dataDict as NSDictionary
+        var contained = false
+        if var currentCourses = UserDefaults.standard.array(forKey: "WatchList2") as? [NSDictionary]{
+            for c in currentCourses {
+                if (c.object(forKey: "courseCode") as? String == dataDict["courseCode"] as? String) {
+                    contained = true
+                }
+            }
+            if (!contained) {
+                currentCourses.append(nsDict)
+            }
+            UserDefaults.standard.set(currentCourses, forKey: "WatchList2")
+        }
+        else {
+            var currentCourses = [NSDictionary]()
+            currentCourses.append(nsDict)
+            UserDefaults.standard.set(currentCourses, forKey: "WatchList2")
+        }
+        performSegue(withIdentifier: "AddToWatchlist", sender: self)
+        
         //create a dictionary of select course section
         //save that dictionary into NSUserdefault
     }
     
-
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

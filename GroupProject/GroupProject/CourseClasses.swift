@@ -8,38 +8,42 @@
 
 import Foundation
 
-class CourseSection{
-    var courseCode3: String
-    var days3: String
-    var time3: String
-    var instructor3: String
-    var type3: String
-    var section3: String
-    var place3: String
-    var status3: String
+class CourseSection {
+    var courseCode: String
+    var days: String
+    var time: String
+    var instructor: String
+    var type: String
+    var section: String
+    var place: String
+    var status: String
+    var maxSeats : Int
+    var seatsTaken : Int
+    var seatsReserved : Int
     
-    
-    init(courseCode: String, type: String, section: String, instructor: String, days: String, time: String, place: String, status: String){
-        self.courseCode3 = courseCode
-        self.days3 = days
-        self.time3 = time
-        self.instructor3 = instructor
-        self.type3 = type
-        self.section3 = section
-        self.place3 = place
-        self.status3 = status
-        
-     }
+    required init(courseCode: String, type: String, section: String, instructor: String, days: String, time: String, place: String, status: String, maxSeats: Int, seatsTaken: Int, seatsReserved: Int){
+        self.courseCode = courseCode
+        self.days = days
+        self.time = time
+        self.instructor = instructor
+        self.type = type
+        self.section = section
+        self.place = place
+        self.status = status
+        self.maxSeats = maxSeats
+        self.seatsTaken = seatsTaken
+        self.seatsReserved = seatsReserved
+    }
 }
 
 class Course{
-    var dept3: String
-    var courseNum3: String
-    var courseTitle3: String
+    var dept: String
+    var courseNum: String
+    var courseTitle: String
     
     init(dept: String, courseNum: String, courseTitle: String){
-        self.dept3 = dept
-        self.courseNum3 = courseNum
-        self.courseTitle3 = courseTitle
+        self.dept = dept
+        self.courseNum = courseNum
+        self.courseTitle = courseTitle
     }
 }

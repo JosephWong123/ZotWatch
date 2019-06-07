@@ -5,23 +5,19 @@
 //  Created by Joseph Wong on 6/4/19.
 //  Copyright © 2019 Kinaar Desai. All rights reserved.
 //
-
-
 import Foundation
 
 class GetCourseInfo {
-    static var url = URLComponents(string: "https:www.reg.uci.edu/perl/WebSoc")!
+    static var url = URLComponents(string: "https://www.reg.uci.edu/perl/WebSoc")!
     
-    var courses = [Course]()
- 
     static func findSection(quarter: String, year: String, dept: String, courseNum: String, success: @escaping (([CourseSection]) -> ()), failure: @escaping (Error) -> ()) {
         let data = ["Submit": "Display Text Results", "YearTerm": year + "-" + quarter,
-            "Breadth": "ANY", "Dept": dept, "Division": "ANY", "CourseNum": courseNum]
+                    "Breadth": "ANY", "Dept": dept, "Division": "ANY", "CourseNum": courseNum]
         var sections = [CourseSection]()
         url.queryItems = data.map { (key, value) in
             URLQueryItem(name: key, value: value)
         }
-
+        
         let task = URLSession.shared.dataTask(with: url.url!) { data, response, error in
             var lines = [String]()
             if let error = error {
@@ -31,7 +27,7 @@ class GetCourseInfo {
                 (200...299).contains(httpResponse.statusCode) else {
                     return
             }
-
+            
             if let data = data {
                 let string = String(data: data, encoding: .utf8)
                 string!.enumerateLines { line, _ in
@@ -43,30 +39,48 @@ class GetCourseInfo {
                     
                     if (Int(elements[0]) != nil) {
                         elements = elements.filter { $0 != "" }
-                         print(elements)
+                        
                         if (elements[4].last! == ",") {
                             elements[4] = String(elements[4].dropLast())
                         }
-                        sections.append(CourseSection(courseCode: (elements[0]), type: elements[1], section: elements[2], instructor: elements[4], days: elements[elements.count-12], time: String(elements[elements.count-11]) + String(elements[elements.count-10]), place: elements[elements.count-9] + " " + elements[elements.count-8], status: elements[elements.count-1]))
+                        
+                        let code = elements[0]
+                        let type = elements[1]
+                        let section = elements[2]
+                        let instructor = elements[4]
+                        let dayRange = line.range(of: #"[(M)(Tu)(W)(Th)(F)]+"#, options: .regularExpression)
+                        let days = String(line[dayRange!])
+                        var time : String
+                        if let timeRange = line.range(of: #"\d{1,2}:\d{2}-[\s\d]\d:\d{2}(p?)"#, options: .regularExpression) {
+                            time = String(line[timeRange])
+                        }
+                        else {
+                            time = "TBA"
+                        }
+                        let place = elements[elements.count-9] + " " + elements[elements.count-8]
+                        let status = elements[elements.count-1]
+                        let maxSeats = Int(elements[elements.count-7]) ?? 0
+                        let seatsTaken = Int(elements[elements.count-6]) ?? 0
+                        let seatsReserved = Int(elements[elements.count-3]) ?? 0
+                        sections.append(CourseSection(courseCode: code, type: type, section: section, instructor: instructor, days: days, time: time, place: place, status: status, maxSeats: maxSeats, seatsTaken: seatsTaken, seatsReserved: seatsReserved))
                     }
                 }
+                
                 success(sections)
             }
         }
         task.resume()
     }
- 
+    
     static func findCourses(quarter: String, year: String, dept: String, success: @escaping (([Course]) -> ()),
                             failure: @escaping ((Error) -> ())) {
         let data = ["Submit": "Display Text Results", "YearTerm": year + "-" + quarter,
                     "Breadth": "ANY", "Dept": dept, "Division": "ANY"]
         
-        
- 
         url.queryItems = data.map { (key, value) in
             URLQueryItem(name: key, value: value)
         }
- 
+        
         let task = URLSession.shared.dataTask(with: url.url!) { data, response, error in
             var lines = [String]()
             var courses = [Course]()
@@ -97,4 +111,3 @@ class GetCourseInfo {
         task.resume()
     }
 }
-

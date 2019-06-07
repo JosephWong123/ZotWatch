@@ -28,13 +28,6 @@ class SectionTableViewController: UITableViewController {
             for c in cour{
                 self.courses.append(c)
             }
-//            for cs in self.courses{
-//                print(cs.courseNum3)
-//                print(cs.courseTitle3)
-//                print(cs.dept3)
-//            }
-//            print("----------------------------------COUNT COURSES----------------------------------")
-//            print(self.courses.count)
             
             self.tableView.reloadData()
         }) { (error) in
@@ -63,9 +56,9 @@ class SectionTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell", for: indexPath) as! CourseTableViewCell
-        cell.cnameLabel.text = courses[indexPath.row].dept3 
-        cell.cnumLabel.text = courses[indexPath.row].courseNum3
-        cell.cdescLabel.text = courses[indexPath.row].courseTitle3
+        cell.cnameLabel.text = courses[indexPath.row].dept
+        cell.cnumLabel.text = courses[indexPath.row].courseNum
+        cell.cdescLabel.text = courses[indexPath.row].courseTitle
 
         // Configure the cell...
 
@@ -74,11 +67,11 @@ class SectionTableViewController: UITableViewController {
     
     //Expands course into all sections of it
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        secDict["dept"] = courses[indexPath.row].dept3
+        secDict["dept"] = courses[indexPath.row].dept
         secDict["year"] = coursesDict["year"]
         secDict["quarter"] = coursesDict["quarter"]
-        secDict["courseNum"] = courses[indexPath.row].courseNum3
-        secDict["courseTitle"] = courses[indexPath.row].courseTitle3
+        secDict["courseNum"] = courses[indexPath.row].courseNum
+        secDict["courseTitle"] = courses[indexPath.row].courseTitle
         performSegue(withIdentifier: "addSectionSegue", sender: secDict)
     }
     
