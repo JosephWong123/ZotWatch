@@ -9,7 +9,7 @@
 import Foundation
 
 struct CourseSection {
-    let courseCode : Int
+    let courseCode : String
     let type : String
     let section : String
     let instructor : String
@@ -17,4 +17,7 @@ struct CourseSection {
     let time : String
     let place : String
     let status : String
+    let maxSeats : Int
+    let seatsTaken : Int
+    let seatsReserved : Int
 }
