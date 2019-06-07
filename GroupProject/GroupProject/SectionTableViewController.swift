@@ -23,6 +23,7 @@ class SectionTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Finds all the courses in that dept, quarter and year
         GetCourseInfo.findCourses(quarter: coursesDict["quarter"]!, year: coursesDict["year"]!, dept: coursesDict["dept"]!, success: { (cour) in
             for c in cour{
                 self.courses.append(c)
@@ -71,6 +72,7 @@ class SectionTableViewController: UITableViewController {
         return cell
     }
     
+    //Expands course into all sections of it
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         secDict["dept"] = courses[indexPath.row].dept3
         secDict["year"] = coursesDict["year"]
@@ -80,9 +82,11 @@ class SectionTableViewController: UITableViewController {
         performSegue(withIdentifier: "addSectionSegue", sender: secDict)
     }
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addSectionSegue" {
             let sectionAddTVC = segue.destination as! SectionAddTableViewController
+            //Updates the dictionary in other VC to perform query
             sectionAddTVC.sectionDict = self.secDict
         }
     }

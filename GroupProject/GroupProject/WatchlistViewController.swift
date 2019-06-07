@@ -7,13 +7,16 @@
 
 import UIKit
 
+//need to implement remove section
 class WatchlistViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    
+
     var watched: [CourseSection] = []
     
+    //should be call every view did load or when refreshed
     func getCourses(){
-        
+        //reads NSUserDefaults for all the dictionaries saved in the watchlist
+        //calls GetCourseInfo.findSection() for all the dictionaries and added to watched dictionary
+        //displays
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

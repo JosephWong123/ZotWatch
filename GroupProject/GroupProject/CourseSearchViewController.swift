@@ -49,10 +49,13 @@ class CourseSearchViewController: UIViewController, UIPickerViewDelegate, UIPick
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        //tag 1 = department picker
         if pickerView.tag == 1 {
             return depts.count
+        //tag 2 = year picker
         } else if pickerView.tag == 2 {
             return years.count
+        //tag 3 = quarter picker
         } else if pickerView.tag == 3 {
             return quarterCodes.count
         } else {
@@ -86,6 +89,7 @@ class CourseSearchViewController: UIViewController, UIPickerViewDelegate, UIPick
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "course2section" {
             let sectionTVC = segue.destination as! SectionTableViewController
+            //passes course information as a dict to next VC
             sectionTVC.coursesDict = self.courseDict
         }
     }

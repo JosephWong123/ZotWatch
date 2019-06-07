@@ -9,7 +9,7 @@
 import UIKit
 
 class SectionAddTableViewController: UITableViewController {
-
+    
     var sectionDict: [String:String] = [:]
     var sections: [CourseSection] = []
     
@@ -65,6 +65,13 @@ class SectionAddTableViewController: UITableViewController {
         // Configure the cell...
 
         return cell
+    }
+    
+    //need to complete this
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print()
+        //create a dictionary of select course section
+        //save that dictionary into NSUserdefault
     }
     
 

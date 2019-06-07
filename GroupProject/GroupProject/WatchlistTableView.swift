@@ -8,6 +8,7 @@
 
 import UIKit
 
+//dont touch, do all tableview things for watchlist in the WatchListViewController, it is alr connected
 class WatchlistTableView: UITableView {
 
     /*

@@ -8,6 +8,7 @@
 
 import UIKit
 
+//Need to connect all the outlets from the storyboard
 class WatchlistTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
