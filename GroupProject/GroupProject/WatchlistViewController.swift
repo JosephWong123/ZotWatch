@@ -9,11 +9,29 @@ import UIKit
 
 //need to implement remove section
 class WatchlistViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-    var watched: [CourseSection] = []
+    
+    var watchCodes = [String]()
+    var watched = [CourseSection]()
+    
     
     //should be call every view did load or when refreshed
     func getCourses(){
+        let defaults = UserDefaults.standard
+        let numTracking = defaults.integer(forKey: "numClasses")
+        let numAsString = String(numTracking)
+        let code = "Class" + numAsString
+        
+        for x in 0...numTracking {
+            let courseCode = defaults.string(forKey: "code")!
+            watchCodes.append(courseCode)
+        }
+        for c in watchCodes {
+            GetCourseInfo.findByCode(quarter: defaults.string(forKey: "quarter")!, year: defaults.string(forKey: "year")!, code: code, success: { (section) in
+                self.watched.append(section)
+            }) { (Error) in
+                print(Error)
+            }
+        }
         //reads NSUserDefaults for all the dictionaries saved in the watchlist
         //calls GetCourseInfo.findSection() for all the dictionaries and added to watched dictionary
         //displays
@@ -26,7 +44,7 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
 
-    @IBOutlet var tableVieww: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
