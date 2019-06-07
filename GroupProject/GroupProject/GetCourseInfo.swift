@@ -47,7 +47,7 @@ class GetCourseInfo {
                         if (elements[4].last! == ",") {
                             elements[4] = String(elements[4].dropLast())
                         }
-                        sections.append(CourseSection(courseCode: Int(elements[0])!, type: elements[1], section: elements[2], instructor: elements[4], days: elements[elements.count-12], time: String(elements[elements.count-11]) + String(elements[elements.count-10]), place: elements[elements.count-9] + " " + elements[elements.count-8], status: elements[elements.count-1]))
+                        sections.append(CourseSection(courseCode: (elements[0]), type: elements[1], section: elements[2], instructor: elements[4], days: elements[elements.count-12], time: String(elements[elements.count-11]) + String(elements[elements.count-10]), place: elements[elements.count-9] + " " + elements[elements.count-8], status: elements[elements.count-1]))
                     }
                 }
                 success(sections)

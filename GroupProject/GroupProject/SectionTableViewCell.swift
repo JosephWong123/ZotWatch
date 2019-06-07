@@ -10,6 +10,18 @@ import UIKit
 
 class SectionTableViewCell: UITableViewCell {
 
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var codeLabel: UILabel!
+    @IBOutlet var dayLabel: UILabel!
+    @IBOutlet var timeLabel: UILabel!
+    @IBOutlet var instructorLabel: UILabel!
+    @IBOutlet var typeLabel: UILabel!
+    @IBOutlet var sectionLabel: UILabel!
+    @IBOutlet var placeLabel: UILabel!
+    @IBOutlet var statusLabel: UILabel!
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

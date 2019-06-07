@@ -1,5 +1,5 @@
 //
-//  SectionTableViewController.swift
+//  SectionAddTableViewController.swift
 //  GroupProject
 //
 //  Created by Garry Fanata on 6/6/19.
@@ -8,44 +8,34 @@
 
 import UIKit
 
-class SectionTableViewController: UITableViewController {
-    
-    var coursesDict: [String:String] = [:]
-    var courses: [Course] = []
-    var secDict: [String:String] = [
-        "dept" : "Default Dept",
-        "year" : "Default Year",
-        "quarter" : "Default Quarter",
-        "courseNum" : "Default Course Number",
-        "courseTitle" : "Default Course Title"
-    ]
+class SectionAddTableViewController: UITableViewController {
 
+    var sectionDict: [String:String] = [:]
+    var sections: [CourseSection] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(sectionDict)
         
-        GetCourseInfo.findCourses(quarter: coursesDict["quarter"]!, year: coursesDict["year"]!, dept: coursesDict["dept"]!, success: { (cour) in
-            for c in cour{
-                self.courses.append(c)
+        GetCourseInfo.findSection(quarter: sectionDict["quarter"]!, year: sectionDict["year"]!, dept: sectionDict["dept"]!, courseNum: sectionDict["courseNum"]!, success: { (courseSec) in
+            for cs in courseSec{
+                self.sections.append(cs)
+                print(cs.courseCode3)
             }
-//            for cs in self.courses{
-//                print(cs.courseNum3)
-//                print(cs.courseTitle3)
-//                print(cs.dept3)
-//            }
-//            print("----------------------------------COUNT COURSES----------------------------------")
-//            print(self.courses.count)
-            
             self.tableView.reloadData()
         }) { (error) in
             print(error)
         }
+        
+        
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-    
+
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -55,37 +45,28 @@ class SectionTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.courses.count
+        return self.sections.count
     }
-    
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell", for: indexPath) as! CourseTableViewCell
-        cell.cnameLabel.text = courses[indexPath.row].dept3 
-        cell.cnumLabel.text = courses[indexPath.row].courseNum3
-        cell.cdescLabel.text = courses[indexPath.row].courseTitle3
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SectionCell", for: indexPath) as! SectionTableViewCell
+        
+        cell.titleLabel.text = sectionDict["courseTitle"]
+        cell.codeLabel.text = sections[indexPath.row].courseCode3
+        cell.dayLabel.text = sections[indexPath.row].days3
+        cell.timeLabel.text = sections[indexPath.row].time3
+        cell.instructorLabel.text = sections[indexPath.row].instructor3
+        cell.typeLabel.text = sections[indexPath.row].type3
+        cell.sectionLabel.text = sections[indexPath.row].section3
+        cell.placeLabel.text = sections[indexPath.row].place3
+        cell.statusLabel.text = sections[indexPath.row].status3
 
         // Configure the cell...
 
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        secDict["dept"] = courses[indexPath.row].dept3
-        secDict["year"] = coursesDict["year"]
-        secDict["quarter"] = coursesDict["quarter"]
-        secDict["courseNum"] = courses[indexPath.row].courseNum3
-        secDict["courseTitle"] = courses[indexPath.row].courseTitle3
-        performSegue(withIdentifier: "addSectionSegue", sender: secDict)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "addSectionSegue" {
-            let sectionAddTVC = segue.destination as! SectionAddTableViewController
-            sectionAddTVC.sectionDict = self.secDict
-        }
-    }
 
     /*
     // Override to support conditional editing of the table view.

@@ -27,6 +27,7 @@
 		D4CFC7C422A9DFE900B13606 /* SectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CFC7C322A9DFE900B13606 /* SectionTableViewController.swift */; };
 		D4CFC7C622AA05EA00B13606 /* CourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CFC7C522AA05EA00B13606 /* CourseTableViewCell.swift */; };
 		D4CFC7C822AA1ADF00B13606 /* SectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CFC7C722AA1ADF00B13606 /* SectionTableViewCell.swift */; };
+		D4CFC7CA22AA1B1F00B13606 /* SectionAddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CFC7C922AA1B1F00B13606 /* SectionAddTableViewController.swift */; };
 		FD9B919BEBB9AB97229D29DF /* Pods_GroupProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45424EBFF72E4325FD1C12A7 /* Pods_GroupProjectTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,7 @@
 		D4CFC7C322A9DFE900B13606 /* SectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTableViewController.swift; sourceTree = "<group>"; };
 		D4CFC7C522AA05EA00B13606 /* CourseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTableViewCell.swift; sourceTree = "<group>"; };
 		D4CFC7C722AA1ADF00B13606 /* SectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTableViewCell.swift; sourceTree = "<group>"; };
+		D4CFC7C922AA1B1F00B13606 /* SectionAddTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionAddTableViewController.swift; sourceTree = "<group>"; };
 		F6E238D60E72658030FFF1D0 /* Pods-GroupProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupProjectUITests.release.xcconfig"; path = "Target Support Files/Pods-GroupProjectUITests/Pods-GroupProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -174,8 +176,9 @@
 				CF3A4E8E22A4765D00C32785 /* Main.storyboard */,
 				D4CFC7C722AA1ADF00B13606 /* SectionTableViewCell.swift */,
 				D4CFC7C522AA05EA00B13606 /* CourseTableViewCell.swift */,
-				D4CFC7C322A9DFE900B13606 /* SectionTableViewController.swift */,
 				D4CFC7BF22A9CEAE00B13606 /* CourseSearchViewController.swift */,
+				D4CFC7C322A9DFE900B13606 /* SectionTableViewController.swift */,
+				D4CFC7C922AA1B1F00B13606 /* SectionAddTableViewController.swift */,
 			);
 			path = GroupProject;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				CF3A4E8B22A4765D00C32785 /* AppDelegate.swift in Sources */,
 				D4CFC7C422A9DFE900B13606 /* SectionTableViewController.swift in Sources */,
 				D4CFC7C022A9CEAE00B13606 /* CourseSearchViewController.swift in Sources */,
+				D4CFC7CA22AA1B1F00B13606 /* SectionAddTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,7 @@
 import Foundation
 
 class CourseSection{
-    var courseCode3: Int
+    var courseCode3: String
     var days3: String
     var time3: String
     var instructor3: String
@@ -19,7 +19,7 @@ class CourseSection{
     var status3: String
     
     
-    init(courseCode: Int, type: String, section: String, instructor: String, days: String, time: String, place: String, status: String){
+    init(courseCode: String, type: String, section: String, instructor: String, days: String, time: String, place: String, status: String){
         self.courseCode3 = courseCode
         self.days3 = days
         self.time3 = time
