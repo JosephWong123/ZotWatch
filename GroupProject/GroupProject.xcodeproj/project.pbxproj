@@ -25,6 +25,8 @@
 		D4CFC7C022A9CEAE00B13606 /* CourseSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CFC7BF22A9CEAE00B13606 /* CourseSearchViewController.swift */; };
 		D4CFC7C222A9DF0300B13606 /* WatchListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CFC7C122A9DF0300B13606 /* WatchListTableViewController.swift */; };
 		D4CFC7C422A9DFE900B13606 /* SectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CFC7C322A9DFE900B13606 /* SectionTableViewController.swift */; };
+		D4CFC7C622AA05EA00B13606 /* CourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CFC7C522AA05EA00B13606 /* CourseTableViewCell.swift */; };
+		D4CFC7C822AA1ADF00B13606 /* SectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CFC7C722AA1ADF00B13606 /* SectionTableViewCell.swift */; };
 		FD9B919BEBB9AB97229D29DF /* Pods_GroupProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45424EBFF72E4325FD1C12A7 /* Pods_GroupProjectTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +78,8 @@
 		D4CFC7BF22A9CEAE00B13606 /* CourseSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseSearchViewController.swift; sourceTree = "<group>"; };
 		D4CFC7C122A9DF0300B13606 /* WatchListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListTableViewController.swift; sourceTree = "<group>"; };
 		D4CFC7C322A9DFE900B13606 /* SectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTableViewController.swift; sourceTree = "<group>"; };
+		D4CFC7C522AA05EA00B13606 /* CourseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTableViewCell.swift; sourceTree = "<group>"; };
+		D4CFC7C722AA1ADF00B13606 /* SectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTableViewCell.swift; sourceTree = "<group>"; };
 		F6E238D60E72658030FFF1D0 /* Pods-GroupProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupProjectUITests.release.xcconfig"; path = "Target Support Files/Pods-GroupProjectUITests/Pods-GroupProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -163,13 +167,15 @@
 				D4CFC7BD22A92B5D00B13606 /* CourseClasses.swift */,
 				2AF806F822A778A4008B6D4E /* SearchViewController.swift */,
 				CF3A4E8C22A4765D00C32785 /* ViewController.swift */,
-				D4CFC7BF22A9CEAE00B13606 /* CourseSearchViewController.swift */,
 				2A8B443722A8F73D00E00C2B /* department_names.txt */,
 				CF3A4E9122A4765F00C32785 /* Assets.xcassets */,
+				D4CFC7C122A9DF0300B13606 /* WatchListTableViewController.swift */,
 				CF3A4E9322A4765F00C32785 /* LaunchScreen.storyboard */,
 				CF3A4E8E22A4765D00C32785 /* Main.storyboard */,
+				D4CFC7C722AA1ADF00B13606 /* SectionTableViewCell.swift */,
+				D4CFC7C522AA05EA00B13606 /* CourseTableViewCell.swift */,
 				D4CFC7C322A9DFE900B13606 /* SectionTableViewController.swift */,
-				D4CFC7C122A9DF0300B13606 /* WatchListTableViewController.swift */,
+				D4CFC7BF22A9CEAE00B13606 /* CourseSearchViewController.swift */,
 			);
 			path = GroupProject;
 			sourceTree = "<group>";
@@ -402,6 +408,8 @@
 				D4CFC7BE22A92B5D00B13606 /* CourseClasses.swift in Sources */,
 				CF3A4E8D22A4765D00C32785 /* ViewController.swift in Sources */,
 				D4CFC7C222A9DF0300B13606 /* WatchListTableViewController.swift in Sources */,
+				D4CFC7C622AA05EA00B13606 /* CourseTableViewCell.swift in Sources */,
+				D4CFC7C822AA1ADF00B13606 /* SectionTableViewCell.swift in Sources */,
 				2AC34F1F22A8F555004195C3 /* GetCourseInfo.swift in Sources */,
 				2AF806F922A778A4008B6D4E /* SearchViewController.swift in Sources */,
 				CF3A4E8B22A4765D00C32785 /* AppDelegate.swift in Sources */,

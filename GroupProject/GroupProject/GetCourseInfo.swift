@@ -14,8 +14,8 @@ class GetCourseInfo {
     
     var courses = [Course]()
  
-    static func findSection(quarter: Int, year: Int, dept: String, courseNum: String, success: @escaping (([CourseSection]) -> ()), failure: @escaping (Error) -> ()) {
-        let data = ["Submit": "Display Text Results", "YearTerm": String(year) + "-" + String(quarter),
+    static func findSection(quarter: String, year: String, dept: String, courseNum: String, success: @escaping (([CourseSection]) -> ()), failure: @escaping (Error) -> ()) {
+        let data = ["Submit": "Display Text Results", "YearTerm": year + "-" + quarter,
             "Breadth": "ANY", "Dept": dept, "Division": "ANY", "CourseNum": courseNum]
         var sections = [CourseSection]()
         url.queryItems = data.map { (key, value) in
@@ -56,10 +56,12 @@ class GetCourseInfo {
         task.resume()
     }
  
-    static func findCourses(quarter: Int, year: Int, dept: String, success: @escaping (([Course]) -> ()),
+    static func findCourses(quarter: String, year: String, dept: String, success: @escaping (([Course]) -> ()),
                             failure: @escaping ((Error) -> ())) {
-        let data = ["Submit": "Display Text Results", "YearTerm": String(year) + "-" + String(quarter),
+        let data = ["Submit": "Display Text Results", "YearTerm": year + "-" + quarter,
                     "Breadth": "ANY", "Dept": dept, "Division": "ANY"]
+        
+        
  
         url.queryItems = data.map { (key, value) in
             URLQueryItem(name: key, value: value)

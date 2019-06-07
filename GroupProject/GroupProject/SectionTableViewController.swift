@@ -9,9 +9,33 @@
 import UIKit
 
 class SectionTableViewController: UITableViewController {
+    
+    var coursesDict: [String:String] = [:]
+    var courses: [Course] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        GetCourseInfo.findCourses(quarter: coursesDict["quarter"]!, year: coursesDict["year"]!, dept: coursesDict["dept"]!, success: { (cour) in
+            for c in cour{
+                self.courses.append(c)
+            }
+            for cs in self.courses{
+                print(cs.courseNum3)
+                print(cs.courseTitle3)
+                print(cs.dept3)
+            }
+            print("----------------------------------COUNTTTTT----------------------------------")
+            print(self.courses.count)
+            
+            self.tableView.reloadData()
+        }) { (error) in
+            print(error)
+        }
+        
+        
+        
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -19,28 +43,32 @@ class SectionTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.courses.count
     }
+    
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell", for: indexPath) as! CourseTableViewCell
+        cell.cnameLabel.text = courses[indexPath.row].dept3 
+        cell.cnumLabel.text = courses[indexPath.row].courseNum3
+        cell.cdescLabel.text = courses[indexPath.row].courseTitle3
 
         // Configure the cell...
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
