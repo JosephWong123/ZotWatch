@@ -6,7 +6,6 @@
 //  Copyright © 2019 Kinaar Desai. All rights reserved.
 //
 
-/*
 import Foundation
 
 class GetCourseInfo {
@@ -43,13 +42,25 @@ class GetCourseInfo {
                     
                     if (Int(elements[0]) != nil) {
                         elements = elements.filter { $0 != "" }
-                        // print(elements)
+
                         if (elements[4].last! == ",") {
                             elements[4] = String(elements[4].dropLast())
                         }
-                        sections.append(CourseSection(courseCode: Int(elements[0])!, type: elements[1], section: elements[2], instructor: elements[4], days: elements[elements.count-12], time: String(elements[elements.count-11]) + String(elements[elements.count-10]), place: elements[elements.count-9] + " " + elements[elements.count-8], status: elements[elements.count-1]))
+                        let code = elements[0]
+                        let type = elements[1]
+                        let section = elements[2]
+                        let instructor = elements[4]
+                        let days = elements[elements.count-12]
+                        let time = elements[elements.count-11] + elements[elements.count-10]
+                        let place = elements[elements.count-9] + " " + elements[elements.count-8]
+                        let status = elements[elements.count-1]
+                        let maxSeats = Int(elements[elements.count-7])!
+                        let seatsTaken = Int(elements[elements.count-6])!
+                        let seatsReserved = Int(elements[elements.count-3])!
+                        sections.append(CourseSection(courseCode: code, type: type, section: section, instructor: instructor, days: days, time: time, place: place, status: status, maxSeats: maxSeats, seatsTaken: seatsTaken, seatsReserved: seatsReserved))
                     }
                 }
+                
                 success(sections)
             }
         }
@@ -95,4 +106,3 @@ class GetCourseInfo {
         task.resume()
     }
 }
-*/
