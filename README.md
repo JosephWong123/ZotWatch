@@ -29,31 +29,47 @@ Keeps track of classes that a user is interested in enrolling in at UCI. Makes i
 * Screen that allows a user to search UCI's catalogue in order to add it to their track list
 * Ability to add/remove classes from a user's watch list
 
+**Optional Nice-to-have Stories**
+
+* The background for each course the user is tracking matches the status of the course. (Green for OPEN, Yellow for waitlist, Red for FULL, Blue for NewOnly)
+* User can sort/filter through their watch list courses
+* User can remove a watch list course
+* User can rearrange the order of their watch list course
+
 ### 2. Screen Archetypes
 
 * Watch List Screen
    * User can view the list of classes they are tracking
    * User can add a class to their tracking list
-* Add Course Screen
+* Find Course Screen
    * User can pick a department, year, and quarter to choose a course from
+* Course List Screen
+    * Lists all the different courses for that specified department, year, and quarter
+    * User can choose a course to choose from
+* Lecture/Discussion/Lab List Screen
+    * Lists all the lectures, discussion, and lab sections for the corresponding course
+    * User can choose a section to add to their watch list
 
 
 ### 3. Navigation
 
 **Tab Navigation** (Tab to Screen)
 
-* [fill out your first tab]
-* [fill out your second tab]
-* [fill out your third tab]
+* Watch list Feed
+* Find Course
+* Choose Course
+* Choose Section
 
 **Flow Navigation** (Screen to Screen)
 
-* [list first screen here]
-   * [list screen navigation here]
-   * ...
-* [list second screen here]
-   * [list screen navigation here]
-   * ...
+* Watch List Feed
+    => Find Course
+* Find Course Screen
+    => Choose Course
+* Choose Course Screen
+    => Choose Section
+* Choose Section Screen
+    => Watch List Feed
 
 ## Wireframes
 [Add picture of your hand sketched wireframes in this section]
