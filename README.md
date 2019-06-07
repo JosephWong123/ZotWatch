@@ -29,45 +29,62 @@ Keeps track of classes that a user is interested in enrolling in at UCI. Makes i
 * Screen that allows a user to search UCI's catalogue in order to add it to their track list
 * Ability to add/remove classes from a user's watch list
 
+**Optional Nice-to-have Stories**
+
+* The background for each course the user is tracking matches the status of the course. (Green for OPEN, Yellow for waitlist, Red for FULL, Blue for NewOnly)
+* User can sort/filter through their watch list courses
+* User can remove a watch list course
+* User can rearrange the order of their watch list course
+
 ### 2. Screen Archetypes
 
-* [list first screen here]
-   * [list associated required story here]
-   * ...
-* [list second screen here]
-   * [list associated required story here]
-   * ...
+* Watch List Screen
+   * User can view the list of classes they are tracking
+   * User can add a class to their tracking list
+* Find Course Screen
+   * User can pick a department, year, and quarter to choose a course from
+* Course List Screen
+    * Lists all the different courses for that specified department, year, and quarter
+    * User can choose a course to choose from
+* Lecture/Discussion/Lab List Screen
+    * Lists all the lectures, discussion, and lab sections for the corresponding course
+    * User can choose a section to add to their watch list
+
 
 ### 3. Navigation
 
 **Tab Navigation** (Tab to Screen)
 
-* [fill out your first tab]
-* [fill out your second tab]
-* [fill out your third tab]
+* Watch list Feed
+* Find Course
+* Choose Course
+* Choose Section
 
 **Flow Navigation** (Screen to Screen)
 
-* [list first screen here]
-   * [list screen navigation here]
-   * ...
-* [list second screen here]
-   * [list screen navigation here]
-   * ...
+* Watch List Feed
+    => Find Course
+* Find Course Screen
+    => Choose Course
+* Choose Course Screen
+    => Choose Section
+* Choose Section Screen
+    => Watch List Feed
 
 ## Wireframes
 [Add picture of your hand sketched wireframes in this section]
 <img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
 
-## Schema 
+## Schema
+[This section will be completed in Unit 9]
 ### Models
 Course
 
 | Property | Type  | Description |
 | -------- | -------- | -------- |
-| dept | String | The department that the course is in |
-| courseNum | String | The department's designation for an approved course |
-| courseTitle | String | The title of the course, describing what the course is about |
+| dept | String | The department that the course is in
+| courseNum | String | The department's designation for an approved course
+| courseTitle | String | The title of the course, describing what the course is about
 
 CourseSection
 
@@ -77,7 +94,7 @@ CourseSection
 |type|String|The type of instruction for the course|
 |section|String|The Section number or letter identifier for an individual class|
 |instructor|String|The name of the instructor teaching the class|
-|days|String|The days on which the class meets|
-|time|String|The meeting time of the class|
-|place|String|The location of where the class meets|
-|status|String|	For the fall, winter and spring terms, this column specifies the current enrollment status for a class: <br>OPEN: The class has not yet reached maximum enrollment capacity. <br> NewOnly: This course only has openings for new students (but the waiting list may still have space for continuing students).<br>Waitl: The class has reached maximum capacity, but there is space on the Waiting List<br>FULL: The class has reached maximum capacity and the Waiting List is either full or not an option|
+|days|String|The days on which the class meets.|
+|time|String|The meeting time of the class.|
+|place|String|The location of where the class meets.|
+|status|String|	For the fall, winter and spring terms, this column specifies the current enrollment status for a class: <br>OPEN: The class has not yet reached maximum enrollment capacity. <br> NewOnly: This course only has openings for new students (but the waiting list may still have space for continuing students).<br>Waitl: The class has reached maximum capacity, but there is space on the Waiting List<br>FULL: The class has reached maximum capacity and the Waiting List is either full or not an option.|
