@@ -9,6 +9,7 @@
 import Foundation
 
 class CourseSection {
+    var courseName: String
     var courseCode: String
     var days: String
     var time: String
@@ -33,6 +34,7 @@ class CourseSection {
         self.maxSeats = maxSeats
         self.seatsTaken = seatsTaken
         self.seatsReserved = seatsReserved
+        self.courseName = "Title"
     }
 }
 

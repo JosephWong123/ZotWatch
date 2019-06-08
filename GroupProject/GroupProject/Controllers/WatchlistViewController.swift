@@ -13,6 +13,8 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
     var watchCodes = [String]()
     var watched = [CourseSection]()
     
+    @IBOutlet weak var tableView: WatchlistTableView!
+    
     
     //should be call every view did load or when refreshed
     func getCourses(){
@@ -41,8 +43,9 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WatchListCell", for: indexPath) as! WatchlistTableViewCell
+        cell.courseName.text = watched[indexPath.row].courseName
         cell.profName.text = watched[indexPath.row].instructor
-        cell.courseTime.text = watched[indexPath.row].time
+        cell.courseTime.text = watched[indexPath.row].days + " " + watched[indexPath.row].time
         cell.classCode.text = watched[indexPath.row].courseCode
         cell.location.text = watched[indexPath.row].place
         let seatsAvail = watched[indexPath.row].maxSeats - watched[indexPath.row].seatsTaken - watched[indexPath.row].seatsReserved
@@ -52,8 +55,7 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
 
-    @IBOutlet weak var tableView: UITableView!
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -67,7 +69,7 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        return watched.count
     }
 
     /*

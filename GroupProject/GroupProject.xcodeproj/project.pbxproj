@@ -117,6 +117,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4422617322AB8A7900D7FBA7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2AF806F622A7623C008B6D4E /* DepartmentsTableViewController.swift */,
+				2AF806F822A778A4008B6D4E /* SearchViewController.swift */,
+				D4CFC7BF22A9CEAE00B13606 /* CourseSearchViewController.swift */,
+				D4CFC7C322A9DFE900B13606 /* SectionTableViewController.swift */,
+				D4CFC7C922AA1B1F00B13606 /* SectionAddTableViewController.swift */,
+				2A071F0222AAE40B00878A43 /* WatchlistViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		4422617422AB8A9B00D7FBA7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D4CFC7BD22A92B5D00B13606 /* CourseClasses.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4422617522AB8AAA00D7FBA7 /* Request Handler */ = {
+			isa = PBXGroup;
+			children = (
+				2AC34F1E22A8F555004195C3 /* GetCourseInfo.swift */,
+			);
+			path = "Request Handler";
+			sourceTree = "<group>";
+		};
+		4422617622AB8AD000D7FBA7 /* Prototype Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D4CFC7CF22AA332700B13606 /* WatchlistTableViewCell.swift */,
+				D4CFC7C722AA1ADF00B13606 /* SectionTableViewCell.swift */,
+				D4CFC7C522AA05EA00B13606 /* CourseTableViewCell.swift */,
+			);
+			path = "Prototype Cells";
+			sourceTree = "<group>";
+		};
 		A23C15D70883F29777107CA4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,25 +205,18 @@
 		CF3A4E8922A4765D00C32785 /* GroupProject */ = {
 			isa = PBXGroup;
 			children = (
+				4422617622AB8AD000D7FBA7 /* Prototype Cells */,
+				4422617522AB8AAA00D7FBA7 /* Request Handler */,
+				4422617422AB8A9B00D7FBA7 /* Models */,
+				4422617322AB8A7900D7FBA7 /* Controllers */,
 				CF3A4E9622A4765F00C32785 /* Info.plist */,
 				CF3A4E8A22A4765D00C32785 /* AppDelegate.swift */,
-				2AF806F622A7623C008B6D4E /* DepartmentsTableViewController.swift */,
-				2AC34F1E22A8F555004195C3 /* GetCourseInfo.swift */,
-				D4CFC7BD22A92B5D00B13606 /* CourseClasses.swift */,
-				2AF806F822A778A4008B6D4E /* SearchViewController.swift */,
 				CF3A4E8C22A4765D00C32785 /* ViewController.swift */,
 				2A8B443722A8F73D00E00C2B /* department_names.txt */,
 				CF3A4E9122A4765F00C32785 /* Assets.xcassets */,
 				CF3A4E9322A4765F00C32785 /* LaunchScreen.storyboard */,
 				CF3A4E8E22A4765D00C32785 /* Main.storyboard */,
 				D4CFC7CD22AA31FE00B13606 /* WatchlistTableView.swift */,
-				D4CFC7CF22AA332700B13606 /* WatchlistTableViewCell.swift */,
-				D4CFC7C722AA1ADF00B13606 /* SectionTableViewCell.swift */,
-				D4CFC7C522AA05EA00B13606 /* CourseTableViewCell.swift */,
-				D4CFC7BF22A9CEAE00B13606 /* CourseSearchViewController.swift */,
-				D4CFC7C322A9DFE900B13606 /* SectionTableViewController.swift */,
-				D4CFC7C922AA1B1F00B13606 /* SectionAddTableViewController.swift */,
-				2A071F0222AAE40B00878A43 /* WatchlistViewController.swift */,
 			);
 			path = GroupProject;
 			sourceTree = "<group>";
