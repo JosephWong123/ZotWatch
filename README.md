@@ -17,7 +17,6 @@ Keeps track of classes that a user is interested in enrolling in at UCI. Makes i
 - **Story:** Helps users keep track of classes they are trying to enroll in at UCI. Once a class is added to their track list, every time the user opens the app, each class will be a different color based on how full the class in. This will help a user keep track of all their classes at the same time, without having to keep refreshing on Schedule of Classes.
 - **Market:** This app is targeted towards UCI students.
 - **Habit:** This app is primarily going to be used during class registration season - the usage will depend on the importance keeping track of classes a user is trying to enroll in.
-- **Scope:** ??? someone help?
 
 ## Product Spec
 
@@ -76,7 +75,6 @@ Keeps track of classes that a user is interested in enrolling in at UCI. Makes i
 <img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
 
 ## Schema
-[This section will be completed in Unit 9]
 ### Models
 Course
 
@@ -90,6 +88,7 @@ CourseSection
 
 | Property | Type  | Description |
 | -------- | -------- | -------- |
+|courseName|String|The course's title from the UCI Registrar.|
 |courseCode|Int|The section's unique course code, used for adding and dropping from WebReg|
 |type|String|The type of instruction for the course|
 |section|String|The Section number or letter identifier for an individual class|
@@ -98,3 +97,6 @@ CourseSection
 |time|String|The meeting time of the class.|
 |place|String|The location of where the class meets.|
 |status|String|	For the fall, winter and spring terms, this column specifies the current enrollment status for a class: <br>OPEN: The class has not yet reached maximum enrollment capacity. <br> NewOnly: This course only has openings for new students (but the waiting list may still have space for continuing students).<br>Waitl: The class has reached maximum capacity, but there is space on the Waiting List<br>FULL: The class has reached maximum capacity and the Waiting List is either full or not an option.|
+|maxSeats|Int|The total number of seats available for that section.|
+|seatsTaken|Int|The number of seats that have already been taken in that section.|
+|seatsReserved|Int|The number of seats that are reserved for new students; cannot currently be enrolled in.|
