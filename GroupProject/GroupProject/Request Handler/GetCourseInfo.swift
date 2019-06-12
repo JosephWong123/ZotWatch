@@ -48,7 +48,7 @@ class GetCourseInfo {
                         let type = elements[1]
                         let section = elements[2]
                         let instructor = elements[4]
-                        let dayRange = line.range(of: #"[(M)(Tu)(W)(Th)(F)]+"#, options: .regularExpression)
+                        let dayRange = line.range(of: #"(?<!STAF|STA)(M|Tu|W|Th|F)+"#, options: .regularExpression)
                         let days = String(line[dayRange!])
                         var time : String
                         if let timeRange = line.range(of: #"\d{1,2}:\d{2}-[\s\d]\d:\d{2}(p?)"#, options: .regularExpression) {
@@ -116,7 +116,7 @@ class GetCourseInfo {
                         let type = elements[1]
                         let section = elements[2]
                         let instructor = elements[4]
-                        let dayRange = line.range(of: #"[(M)(Tu)(W)(Th)(F)]+"#, options: .regularExpression)
+                        let dayRange = line.range(of: #"(M|Tu|W|Th|F)+"#, options: .regularExpression)
                         let days = String(line[dayRange!])
                         var time : String
                         if let timeRange = line.range(of: #"\d{1,2}:\d{2}-[\s\d]\d:\d{2}(p?)"#, options: .regularExpression) {

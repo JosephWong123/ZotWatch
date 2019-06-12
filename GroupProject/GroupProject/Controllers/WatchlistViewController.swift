@@ -51,6 +51,18 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
         let seatsAvail = watched[indexPath.row].maxSeats - watched[indexPath.row].seatsTaken - watched[indexPath.row].seatsReserved
         cell.seatsAvail.text = String(seatsAvail)
         cell.status.text = watched[indexPath.row].status
+        switch (watched[indexPath.row].status.lowercased()) {
+        case "newonly":
+            cell.backgroundColor = .blue
+        case "full":
+            cell.backgroundColor = .red
+        case "open":
+            cell.backgroundColor = .green
+        case "waitl":
+            cell.backgroundColor = .yellow
+        default:
+            cell.backgroundColor = .white
+        }
         return cell
     }
     
@@ -87,6 +99,24 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.reloadData()
     }
 
+    // need to reconnect later
+    @IBAction func remove(_ sender: Any) {
+        guard let cell = (sender as AnyObject).superview?.superview as? WatchlistTableViewCell
+            else {
+                return // or fatalError() or whatever
+            }
+        
+        for x in 0...self.watched.count-1 {
+            if self.watched[x].courseCode == cell.classCode.text! {
+    
+                self.watched.remove(at: x)
+                break
+            }
+        }
+        
+        tableView.reloadData()
+    
+  }
     /*
     // MARK: - Navigation
 
