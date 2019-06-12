@@ -23,6 +23,8 @@ class CourseSearchViewController: UIViewController, UIPickerViewDelegate, UIPick
         "quarter" : "92"
     ]
     
+    var passingCourseList = [CourseSection]()
+    
     let depts = ["AC ENG","AFAM","ANATOMY","ANTHRO","ARABIC","ARMN","ART","ART HIS","ARTS","ASIANAM","BIOCHEM","BIO SCI","BATS","BME","BSEMD","BANA","CBEMS","ENGRMSE","CHEM","CHC/LAT","CHINESE","ENGRCEE","CLASSIC","COGS","COM LIT","CSE","COMPSCI","CRM/LAW","CRITISM","CLY&THY","DANCE","DEV BIO","DRAMA","EARTHSS","E ASIAN","ECO EVO","ECON","EDUC","EECS","ECPS","ENGR","ENGLISH","EPIDEM","EURO ST","MGMT EP","FLM&MDA","FIN","FRENCH","MGMT FE","GEN&SEX","GERMAN","GLBCLT","GLBL ME","GREEK","MGMT HC","HEBREW","HISTORY","HUMAN","IN4MATX","I&C SCI","INTL ST","ITALIAN","JAPANESE","KOREAN","LATIN","LINGUIS","LIT JRN","LPS","MGMTMBA","MGMT","MGMTPHD","MPAC","MATH","ENGRMAE","PHARM","M&MG","MOL BIO","MUSIC","NET SYS","NEURBIO","NUR SCI","PATH","PED GEN","PERSIAN","PHRMSCI","PHILOS","PHY SCI","PHYSICS","PHYSIO","PP&D","POL SCI","PORTUG","PSY BEH","PSYCH","PUBHLTH","PUB POL","REL STD","ROTC","RUSSIAN","SOCECOL","SPPS","SOC SCI","SOCIOL","SPANISH","STATS","TOX","UCDC","UNI AFF","UNI STU","UPPP","VIETMSE","VIS STD","WRITING"]
     
     let quarters = ["Fall","Winter","Spring","Summer 1","Summer 10-wk","Summer (COM)","Summer 2"]
@@ -91,6 +93,7 @@ class CourseSearchViewController: UIViewController, UIPickerViewDelegate, UIPick
             let sectionTVC = segue.destination as! SectionTableViewController
             //passes course information as a dict to next VC
             sectionTVC.coursesDict = self.courseDict
+            sectionTVC.passingCourses = self.passingCourseList
         }
     }
     

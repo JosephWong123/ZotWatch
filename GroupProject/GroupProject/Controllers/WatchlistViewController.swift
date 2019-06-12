@@ -71,6 +71,21 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
         // #warning Incomplete implementation, return the number of rows
         return watched.count
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "WatchToSearch" {
+            let courseVC = segue.destination as! CourseSearchViewController
+            
+            //Updates the dictionary in other VC to perform query
+            courseVC.passingCourseList = self.watched
+            
+        }
+        
+    }
+    @IBAction func clearList(_ sender: Any) {
+        self.watched = [CourseSection]()
+        tableView.reloadData()
+    }
 
     /*
     // MARK: - Navigation

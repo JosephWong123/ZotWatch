@@ -12,6 +12,7 @@ class SectionTableViewController: UITableViewController {
     
     var coursesDict: [String:String] = [:]
     var courses: [Course] = []
+    var passingCourses = [CourseSection]()
     var secDict: [String:String] = [
         "dept" : "Default Dept",
         "year" : "Default Year",
@@ -82,6 +83,7 @@ class SectionTableViewController: UITableViewController {
             
             //Updates the dictionary in other VC to perform query
             sectionAddTVC.sectionDict = self.secDict
+            sectionAddTVC.watchList = self.passingCourses
         }
     }
 

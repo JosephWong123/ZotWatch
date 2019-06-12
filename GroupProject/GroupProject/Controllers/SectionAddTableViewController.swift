@@ -15,10 +15,10 @@ class SectionAddTableViewController: UITableViewController {
     var sectionDict: [String:String] = [:]
     var sections: [CourseSection] = []
     var section: CourseSection? = nil
+    var watchList = [CourseSection]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(sectionDict)
         
         GetCourseInfo.findSection(quarter: sectionDict["quarter"]!, year: sectionDict["year"]!, dept: sectionDict["dept"]!, courseNum: sectionDict["courseNum"]!, success: { (courseSec) in
             for cs in courseSec{
@@ -89,10 +89,10 @@ class SectionAddTableViewController: UITableViewController {
    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddToWatchlist" {
-            let sectionVC = segue.destination as! WatchlistViewController
-            
+            let watchVC = segue.destination as! WatchlistViewController
+            self.watchList.append(self.section!)
             //Updates the dictionary in other VC to perform query
-            sectionVC.watched.append(self.section!)
+            watchVC.watched = self.watchList
             
         }
         
