@@ -54,10 +54,10 @@ Keeps track of classes that a user is interested in enrolling in at UCI. Makes i
 
 **Tab Navigation** (Tab to Screen)
 
-* Watch list Feed
-* Find Course
-* Choose Course
-* Choose Section
+* Watch list Feed <br> <img src="https://i.imgur.com/uKQp8Sv.png" width=250>
+* Find Course <br> <img src="https://i.imgur.com/jGUfcjd.png" width=250>
+* Choose Course <br> <img src="https://i.imgur.com/jgEOJGq.png" width=250>
+* Choose Section <br> <img src="https://i.imgur.com/JUYVB6V.png" width=250>
 
 **Flow Navigation** (Screen to Screen)
 
