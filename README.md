@@ -70,7 +70,7 @@ Keeps track of classes that a user is interested in enrolling in at UCI. Makes i
 * Choose Section Screen
     => Watch List Feed
 
-**App Demo**
+**App Demo** <br>
 <img src="http://g.recordit.co/kOSKU8oaY3.gif" width=250>
 
 ## Wireframes
