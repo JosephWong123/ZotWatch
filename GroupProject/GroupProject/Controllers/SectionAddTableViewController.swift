@@ -7,11 +7,10 @@
 //
 
 import UIKit
-import SQLite3
+import Parse
 
 class SectionAddTableViewController: UITableViewController {
     
-    var db: OpaquePointer?
     var sectionDict: [String:String] = [:]
     var sections: [CourseSection] = []
     var section: CourseSection? = nil
@@ -68,15 +67,6 @@ class SectionAddTableViewController: UITableViewController {
     
     // urgent need to fix!! -Joseph
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let defaults = UserDefaults.standard
-        let numTracking = defaults.integer(forKey: "numClasses")
-        let numAsString = String(numTracking)
-        let code = "Class" + numAsString
-        
-        defaults.set(sections[indexPath.row].courseCode, forKey: code)
-        
-        let tracking = numTracking + 1
-        defaults.set(tracking, forKey: "numClasses")
         self.section = sections[indexPath.row]
         performSegue(withIdentifier: "AddToWatchlist", sender: self)
         
@@ -91,6 +81,28 @@ class SectionAddTableViewController: UITableViewController {
         if segue.identifier == "AddToWatchlist" {
             let watchVC = segue.destination as! WatchlistViewController
             self.watchList.append(self.section!)
+            
+            // saves in Parse
+            let user = PFUser.current()!
+            for index in watchList {
+                let object = PFObject(className: "Course")
+                object["code"] = index.courseCode
+                object["user"] = user.username
+                object["title"] = index.courseName
+                object["code"] = index.courseCode
+                object["days"] = index.days
+                object["time"] = index.time
+                object["instructor"] = index.instructor
+                object["type"] = index.type
+                object["place"] = index.place
+                object["status"] = index.status
+                object["maxSeats"] = index.maxSeats
+                object["seatsTaken"] = index.seatsTaken
+                object["seatsReserved"] = index.seatsReserved
+                object["section"] = index.section
+                object.saveEventually()
+            }
+            
             //Updates the dictionary in other VC to perform query
             watchVC.watched = self.watchList
             

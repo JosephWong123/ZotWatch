@@ -65,9 +65,14 @@ class GetCourseInfo {
                             place = "TBA"
                         }
                         let status = elements[elements.count-1]
-                        let maxSeats = Int(elements[elements.count-7]) ?? 0
-                        let seatsTaken = Int(elements[elements.count-6]) ?? 0
-                        let seatsReserved = Int(elements[elements.count-3]) ?? 0
+                        var seatString : String
+                        let seatsRange = line.range(of: #"(\d{1,3}\s+){2}(\d{1,3}|n\/a)(\s+\d{1,3}){2}"#, options: .regularExpression)
+                        seatString = String(line[seatsRange!])
+                        
+                        var seatArray : [String] = seatString.components(separatedBy: .whitespaces)
+                        let maxSeats = Int(seatArray[0]) ?? 0
+                        let seatsTaken = Int(seatArray[1]) ?? 0
+                        let seatsReserved = Int(seatArray[4]) ?? 0
                         sections.append(CourseSection(courseCode: code, type: type, section: section, instructor: instructor, days: days, time: time, place: place, status: status, maxSeats: maxSeats, seatsTaken: seatsTaken, seatsReserved: seatsReserved))
                     }
                 }

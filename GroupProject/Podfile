@@ -7,7 +7,7 @@ target 'GroupProject' do
 
   # Pods for GroupProject
    pod "AlamofireImage"
-   
+   pod "Parse", '~> 3.4'
 
 
   target 'GroupProjectTests' do

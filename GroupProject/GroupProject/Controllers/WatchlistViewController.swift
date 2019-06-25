@@ -6,40 +6,98 @@
 //
 
 import UIKit
+import Parse
 
 //need to implement remove section
 class WatchlistViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    var watchCodes = [String]()
+
     var watched = [CourseSection]()
     
     @IBOutlet weak var tableView: WatchlistTableView!
-    
-    
     //should be call every view did load or when refreshed
-    func getCourses(){
-        let defaults = UserDefaults.standard
-        let numTracking = defaults.integer(forKey: "numClasses")
+    
+    @IBAction func logout(_ sender: Any) {
+        PFUser.logOut()
+        self.performSegue(withIdentifier: "WatchToLogin", sender: nil)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
+        print(UserDefaults.standard.bool(forKey: "loggedIn"))
+        let classQuery = PFQuery(className: "Course")
+        classQuery.whereKey("user", equalTo: PFUser.current()!.username!)
         
-        for x in 0...numTracking {
-            let numAsString = String(x)
-            let code = "Class" + numAsString
-            let courseCode = defaults.string(forKey: code)!
-            watchCodes.append(courseCode)
+        classQuery.findObjectsInBackground {
+            (objects, error) -> Void in
+            if (error == nil) {
+                let objs = objects as! [PFObject]
+                for obj in objs {
+                    let course = CourseSection(courseCode: obj["code"] as! String, type: obj["type"] as! String, section: obj["section"] as! String, instructor: obj["instructor"] as! String, days: obj["days"] as! String, time: obj["time"] as! String, place: obj["place"] as! String, status: obj["status"] as! String, maxSeats: obj["maxSeats"] as! Int, seatsTaken: obj["seatsTaken"] as! Int, seatsReserved: obj["seatsReserved"] as! Int)
+                    course.courseName = obj["title"] as! String
+                    if !self.watched.contains(where: { (c) -> Bool in
+                        if c.courseCode == course.courseCode {
+                            return true
+                        }
+                        return false
+                    }) {
+                        self.watched.append(course)
+                    }
+                }
+                self.tableView.reloadData()
+            } else {
+                print("Error: \(error)")
+            }
         }
-        for c in watchCodes {
-            GetCourseInfo.findByCode(quarter: defaults.string(forKey: "quarter")!, year: defaults.string(forKey: "year")!, code: c, success: { (section) in
-                self.watched.append(section)
-            }) { (Error) in
-                print(Error)
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return watched.count
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "WatchToSearch" {
+            let courseVC = segue.destination as! CourseSearchViewController
+            courseVC.passingCourseList = self.watched
+            
+        }
+        
+    }
+    @IBAction func clearList(_ sender: Any) {
+        self.watched = [CourseSection]()
+        let classQuery = PFQuery(className: "Course")
+        classQuery.whereKey("user", equalTo: PFUser.current()!.username!)
+        
+        classQuery.findObjectsInBackground {
+            (objects, error) -> Void in
+            if (error == nil) {
+                let objs = objects as! [PFObject]
+                for obj in objs {
+                    obj.deleteInBackground()
+                }
+            } else {
+                print("Error: \(error)")
             }
         }
         tableView.reloadData()
-        //reads NSUserDefaults for all the dictionaries saved in the watchlist
-        //calls GetCourseInfo.findSection() for all the dictionaries and added to watched dictionary
-        //displays
     }
+
+    // need to reconnect later
+    @IBAction func remove(_ sender: Any) {
+        guard let cell = (sender as AnyObject).superview?.superview as? WatchlistTableViewCell
+            else {
+                return // or fatalError() or whatever
+            }
+        
+        tableView.reloadData()
+    
+  }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WatchListCell", for: indexPath) as! WatchlistTableViewCell
@@ -49,6 +107,7 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
         cell.classCode.text = watched[indexPath.row].courseCode
         cell.location.text = watched[indexPath.row].place
         let seatsAvail = watched[indexPath.row].maxSeats - watched[indexPath.row].seatsTaken - watched[indexPath.row].seatsReserved
+        print(watched[indexPath.row].seatsReserved)
         cell.seatsAvail.text = String(seatsAvail)
         cell.status.text = watched[indexPath.row].status
         switch (watched[indexPath.row].status.lowercased()) {
@@ -65,66 +124,5 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         return cell
     }
-    
-
-  
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return watched.count
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "WatchToSearch" {
-            let courseVC = segue.destination as! CourseSearchViewController
-            
-            //Updates the dictionary in other VC to perform query
-            courseVC.passingCourseList = self.watched
-            
-        }
-        
-    }
-    @IBAction func clearList(_ sender: Any) {
-        self.watched = [CourseSection]()
-        tableView.reloadData()
-    }
-
-    // need to reconnect later
-    @IBAction func remove(_ sender: Any) {
-        guard let cell = (sender as AnyObject).superview?.superview as? WatchlistTableViewCell
-            else {
-                return // or fatalError() or whatever
-            }
-        
-        for x in 0...self.watched.count-1 {
-            if self.watched[x].courseCode == cell.classCode.text! {
-    
-                self.watched.remove(at: x)
-                break
-            }
-        }
-        
-        tableView.reloadData()
-    
-  }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
