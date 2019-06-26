@@ -108,3 +108,5 @@ CourseSection
 |maxSeats|Int|The total number of seats available for that section.|
 |seatsTaken|Int|The number of seats that have already been taken in that section.|
 |seatsReserved|Int|The number of seats that are reserved for new students; cannot currently be enrolled in.|
+|quarter|String|The string representation of the quarter the class is in.|
+|year|String|The String representation of the year the class is in.|
