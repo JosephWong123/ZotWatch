@@ -23,8 +23,7 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(UserDefaults.standard.bool(forKey: "loggedIn"))
+
         let classQuery = PFQuery(className: "Course")
         classQuery.whereKey("user", equalTo: PFUser.current()!.username!)
         
@@ -94,6 +93,39 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
             else {
                 return // or fatalError() or whatever
             }
+        self.watched = self.watched.filter(){$0.courseCode != cell.classCode.text!}
+        let classQuery = PFQuery(className: "Course")
+        classQuery.whereKey("user", equalTo: PFUser.current()!.username!)
+        classQuery.findObjectsInBackground {
+            (objects, error) -> Void in
+            if (error == nil) {
+                let objs = objects as! [PFObject]
+                for obj in objs {
+                    obj.deleteInBackground()
+                }
+            } else {
+                print("Error: \(error)")
+            }
+        }
+        
+        for index in self.watched {
+            let object = PFObject(className: "Course")
+            object["code"] = index.courseCode
+            object["user"] = PFUser.current()!.username
+            object["title"] = index.courseName
+            object["code"] = index.courseCode
+            object["days"] = index.days
+            object["time"] = index.time
+            object["instructor"] = index.instructor
+            object["type"] = index.type
+            object["place"] = index.place
+            object["status"] = index.status
+            object["maxSeats"] = index.maxSeats
+            object["seatsTaken"] = index.seatsTaken
+            object["seatsReserved"] = index.seatsReserved
+            object["section"] = index.section
+            object.saveInBackground()
+        }
         
         tableView.reloadData()
     

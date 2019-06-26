@@ -175,13 +175,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mqe-h9-YX5">
-                                                    <rect key="frame" x="121" y="194.5" width="70.5" height="21"/>
+                                                    <rect key="frame" x="121" y="194.5" width="87" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Class Code:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ipl-N2-TBX">
-                                                    <rect key="frame" x="100" y="164.5" width="91.5" height="21"/>
+                                                    <rect key="frame" x="100" y="164.5" width="108" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -255,8 +255,12 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="EpQ-JE-iMn" firstAttribute="leading" secondItem="Ocf-Kk-7b7" secondAttribute="leading" constant="138" id="0nZ-Id-2v7"/>
+                                                <constraint firstItem="RbX-nt-1fO" firstAttribute="leading" secondItem="adV-L6-xWA" secondAttribute="leading" id="1ib-Fo-cOd"/>
                                                 <constraint firstItem="2so-vh-XXu" firstAttribute="leading" secondItem="adh-vG-toq" secondAttribute="trailing" constant="8" id="2iU-tv-Taz"/>
                                                 <constraint firstItem="adh-vG-toq" firstAttribute="top" secondItem="Mqe-h9-YX5" secondAttribute="bottom" constant="8" id="2pU-36-Qyh"/>
+                                                <constraint firstItem="EpQ-JE-iMn" firstAttribute="trailing" secondItem="adh-vG-toq" secondAttribute="trailing" id="372-St-ne0"/>
+                                                <constraint firstItem="Mqe-h9-YX5" firstAttribute="trailing" secondItem="Ipl-N2-TBX" secondAttribute="trailing" id="4nA-Gu-fee"/>
+                                                <constraint firstItem="adV-L6-xWA" firstAttribute="leading" secondItem="RbX-nt-1fO" secondAttribute="leading" id="4oV-NM-ouE"/>
                                                 <constraint firstItem="RbX-nt-1fO" firstAttribute="top" secondItem="2so-vh-XXu" secondAttribute="bottom" constant="8" id="6DW-06-1LU"/>
                                                 <constraint firstItem="Ipl-N2-TBX" firstAttribute="top" secondItem="cKD-s9-ESQ" secondAttribute="bottom" constant="7" id="6f7-4c-mZs"/>
                                                 <constraint firstItem="Fcp-jA-zBE" firstAttribute="top" secondItem="EpQ-JE-iMn" secondAttribute="bottom" constant="8" id="70J-iB-2QH"/>
@@ -292,12 +296,15 @@
                                                 <constraint firstItem="RbX-nt-1fO" firstAttribute="top" secondItem="2so-vh-XXu" secondAttribute="bottom" constant="8" id="jPE-04-884"/>
                                                 <constraint firstAttribute="trailing" secondItem="adV-L6-xWA" secondAttribute="trailing" constant="108" id="jxJ-9Z-moI"/>
                                                 <constraint firstItem="Ipl-N2-TBX" firstAttribute="leading" secondItem="adh-vG-toq" secondAttribute="leading" id="kzF-IJ-LRv"/>
+                                                <constraint firstItem="2so-vh-XXu" firstAttribute="leading" secondItem="RbX-nt-1fO" secondAttribute="leading" id="lh2-fL-BA8"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="F95-To-HXP" secondAttribute="trailing" constant="11" id="lru-s7-mNK"/>
                                                 <constraint firstItem="F95-To-HXP" firstAttribute="leading" secondItem="RbX-nt-1fO" secondAttribute="trailing" constant="12" id="oli-QV-UXK"/>
                                                 <constraint firstItem="EpQ-JE-iMn" firstAttribute="top" secondItem="adh-vG-toq" secondAttribute="bottom" constant="8" id="p85-fr-vum"/>
+                                                <constraint firstItem="Uly-Z4-Cyv" firstAttribute="leading" secondItem="RbX-nt-1fO" secondAttribute="leading" id="paA-qL-StT"/>
                                                 <constraint firstItem="RbX-nt-1fO" firstAttribute="trailing" secondItem="2so-vh-XXu" secondAttribute="trailing" id="qL9-XE-l0o"/>
                                                 <constraint firstItem="PlN-lM-Q20" firstAttribute="centerX" secondItem="Ocf-Kk-7b7" secondAttribute="centerX" id="slo-hE-Wxo"/>
                                                 <constraint firstItem="RbX-nt-1fO" firstAttribute="centerY" secondItem="EpQ-JE-iMn" secondAttribute="centerY" id="vSu-Di-2VC"/>
+                                                <constraint firstItem="adh-vG-toq" firstAttribute="trailing" secondItem="Mqe-h9-YX5" secondAttribute="trailing" id="xmK-no-ZT7"/>
                                                 <constraint firstItem="mOf-Ed-z1O" firstAttribute="centerX" secondItem="Ocf-Kk-7b7" secondAttribute="centerX" id="zYB-jx-p0U"/>
                                             </constraints>
                                         </tableViewCellContentView>

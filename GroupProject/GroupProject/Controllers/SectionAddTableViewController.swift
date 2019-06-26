@@ -100,7 +100,7 @@ class SectionAddTableViewController: UITableViewController {
                 object["seatsTaken"] = index.seatsTaken
                 object["seatsReserved"] = index.seatsReserved
                 object["section"] = index.section
-                object.saveEventually()
+                object.saveInBackground()
             }
             
             //Updates the dictionary in other VC to perform query
