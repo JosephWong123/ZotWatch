@@ -139,7 +139,6 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
         cell.classCode.text = watched[indexPath.row].courseCode
         cell.location.text = watched[indexPath.row].place
         let seatsAvail = watched[indexPath.row].maxSeats - watched[indexPath.row].seatsTaken - watched[indexPath.row].seatsReserved
-        print(watched[indexPath.row].seatsReserved)
         cell.seatsAvail.text = String(seatsAvail)
         cell.status.text = watched[indexPath.row].status
         switch (watched[indexPath.row].status.lowercased()) {
