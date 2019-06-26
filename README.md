@@ -77,7 +77,7 @@ Keeps track of classes that a user is interested in enrolling in at UCI. Makes i
     => Watch List Feed
 
 **App Demo** <br>
-<img src="http://g.recordit.co/kOSKU8oaY3.gif" width=250>
+<img src="http://g.recordit.co/CzOpk9x8Cc.gif" width=250>
 
 ## Wireframes
 <img src="https://i.imgur.com/l3K9ick.jpg" width=600>
