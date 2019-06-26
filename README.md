@@ -107,3 +107,7 @@ CourseSection
 |seatsReserved|Int|The number of seats that are reserved for new students; cannot currently be enrolled in.|
 |quarter|String|The string representation of the quarter the class is in.|
 |year|String|The String representation of the year the class is in.|
+
+## Known Bugs
+ * Watch list does not load the data from the database until the list is refreshed
+ * Duplicate courses aren't handled at all
