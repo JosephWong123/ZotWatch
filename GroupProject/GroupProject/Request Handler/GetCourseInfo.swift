@@ -14,9 +14,18 @@ class GetCourseInfo {
     static func findSection(quarter: String, year: String, dept: String, courseNum: String, success: @escaping (([CourseSection]) -> ()), failure: @escaping (Error) -> ()) {
         let data = ["Submit": "Display Text Results", "YearTerm": year + "-" + quarter,
                     "Breadth": "ANY", "Dept": dept, "Division": "ANY", "CourseNum": courseNum]
-        GetCourseInfo.requestHandler(data: data, success: success, failure: failure)
+        GetCourseInfo.requestHandler(quarter: quarter, year: year, data: data, success: success, failure: failure)
     }
     
+    static func findByCode(quarter: String, year: String, code: String, success: @escaping (([CourseSection]) -> ()),
+                           failure: @escaping ((Error) -> ())) {
+        let data = ["Submit": "Display Text Results", "YearTerm": year + "-" + quarter,
+                    "Breadth": "ANY", "CourseCodes": code, "Division": "ANY"]
+        url.queryItems = data.map { (key, value) in
+            URLQueryItem(name: key, value: value)
+        }
+        GetCourseInfo.requestHandler(quarter: quarter, year: year, data: data, success: success, failure: failure)
+    }
     
     static func findCourses(quarter: String, year: String, dept: String, success: @escaping (([Course]) -> ()),
                             failure: @escaping ((Error) -> ())) {
@@ -57,17 +66,7 @@ class GetCourseInfo {
         task.resume()
     }
     
-    static func findByCode(quarter: String, year: String, code: String, success: @escaping (([CourseSection]) -> ()),
-                           failure: @escaping ((Error) -> ())) {
-        let data = ["Submit": "Display Text Results", "YearTerm": year + "-" + quarter,
-                    "Breadth": "ANY", "CourseCodes": code, "Division": "ANY"]
-        url.queryItems = data.map { (key, value) in
-            URLQueryItem(name: key, value: value)
-        }
-        GetCourseInfo.requestHandler(data: data, success: success, failure: failure)
-    }
-    
-    private static func requestHandler(data: [String: String], success: @escaping (([CourseSection]) -> ()), failure: @escaping (Error) -> ()) {
+    private static func requestHandler(quarter: String, year: String, data: [String: String], success: @escaping (([CourseSection]) -> ()), failure: @escaping (Error) -> ()) {
         var sections = [CourseSection]()
         url.queryItems = data.map { (key, value) in
             URLQueryItem(name: key, value: value)
@@ -134,7 +133,7 @@ class GetCourseInfo {
                         }
                         let seatsTaken = Int(seatArray[1]) ?? 0
                         let seatsReserved = Int(seatArray[seatArray.count-1]) ?? 0
-                        sections.append(CourseSection(courseCode: code, type: type, section: section, instructor: instructor, days: days, time: time, place: place, status: status, maxSeats: maxSeats, seatsTaken: seatsTaken, seatsReserved: seatsReserved))
+                        sections.append(CourseSection(courseCode: code, type: type, section: section, instructor: instructor, days: days, time: time, place: place, status: status, maxSeats: maxSeats, seatsTaken: seatsTaken, seatsReserved: seatsReserved, quarter: quarter, year: year))
                     }
                 }
                 

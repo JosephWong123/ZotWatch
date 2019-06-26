@@ -13,7 +13,6 @@
 		2A8B443822A8F73D00E00C2B /* department_names.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2A8B443722A8F73D00E00C2B /* department_names.txt */; };
 		2AC34F1F22A8F555004195C3 /* GetCourseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC34F1E22A8F555004195C3 /* GetCourseInfo.swift */; };
 		2AF806F722A7623C008B6D4E /* DepartmentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF806F622A7623C008B6D4E /* DepartmentsTableViewController.swift */; };
-		2AF806F922A778A4008B6D4E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF806F822A778A4008B6D4E /* SearchViewController.swift */; };
 		44D6C48622C19B49003F3DB6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D6C48522C19B49003F3DB6 /* LoginViewController.swift */; };
 		AB3B9EE05FC7031FAFEE3043 /* Pods_GroupProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FD2DD045A11A2173A211D24 /* Pods_GroupProjectUITests.framework */; };
 		CF3A4E8B22A4765D00C32785 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3A4E8A22A4765D00C32785 /* AppDelegate.swift */; };
@@ -29,7 +28,6 @@
 		D4CFC7C622AA05EA00B13606 /* CourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CFC7C522AA05EA00B13606 /* CourseTableViewCell.swift */; };
 		D4CFC7C822AA1ADF00B13606 /* SectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CFC7C722AA1ADF00B13606 /* SectionTableViewCell.swift */; };
 		D4CFC7CA22AA1B1F00B13606 /* SectionAddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CFC7C922AA1B1F00B13606 /* SectionAddTableViewController.swift */; };
-		D4CFC7CE22AA31FE00B13606 /* WatchlistTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CFC7CD22AA31FE00B13606 /* WatchlistTableView.swift */; };
 		D4CFC7D022AA332700B13606 /* WatchlistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CFC7CF22AA332700B13606 /* WatchlistTableViewCell.swift */; };
 		FD9B919BEBB9AB97229D29DF /* Pods_GroupProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45424EBFF72E4325FD1C12A7 /* Pods_GroupProjectTests.framework */; };
 /* End PBXBuildFile section */
@@ -58,7 +56,6 @@
 		2A8B443722A8F73D00E00C2B /* department_names.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = department_names.txt; sourceTree = "<group>"; };
 		2AC34F1E22A8F555004195C3 /* GetCourseInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCourseInfo.swift; sourceTree = "<group>"; };
 		2AF806F622A7623C008B6D4E /* DepartmentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentsTableViewController.swift; sourceTree = "<group>"; };
-		2AF806F822A778A4008B6D4E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		3B45AF0E6019B8D6A6D183E3 /* Pods_GroupProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroupProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		44D6C48522C19B49003F3DB6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		45424EBFF72E4325FD1C12A7 /* Pods_GroupProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroupProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,7 +83,6 @@
 		D4CFC7C522AA05EA00B13606 /* CourseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTableViewCell.swift; sourceTree = "<group>"; };
 		D4CFC7C722AA1ADF00B13606 /* SectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTableViewCell.swift; sourceTree = "<group>"; };
 		D4CFC7C922AA1B1F00B13606 /* SectionAddTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionAddTableViewController.swift; sourceTree = "<group>"; };
-		D4CFC7CD22AA31FE00B13606 /* WatchlistTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistTableView.swift; sourceTree = "<group>"; };
 		D4CFC7CF22AA332700B13606 /* WatchlistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistTableViewCell.swift; sourceTree = "<group>"; };
 		F6E238D60E72658030FFF1D0 /* Pods-GroupProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupProjectUITests.release.xcconfig"; path = "Target Support Files/Pods-GroupProjectUITests/Pods-GroupProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,7 +120,6 @@
 			children = (
 				44D6C48522C19B49003F3DB6 /* LoginViewController.swift */,
 				2AF806F622A7623C008B6D4E /* DepartmentsTableViewController.swift */,
-				2AF806F822A778A4008B6D4E /* SearchViewController.swift */,
 				D4CFC7BF22A9CEAE00B13606 /* CourseSearchViewController.swift */,
 				D4CFC7C322A9DFE900B13606 /* SectionTableViewController.swift */,
 				D4CFC7C922AA1B1F00B13606 /* SectionAddTableViewController.swift */,
@@ -219,7 +214,6 @@
 				CF3A4E9122A4765F00C32785 /* Assets.xcassets */,
 				CF3A4E9322A4765F00C32785 /* LaunchScreen.storyboard */,
 				CF3A4E8E22A4765D00C32785 /* Main.storyboard */,
-				D4CFC7CD22AA31FE00B13606 /* WatchlistTableView.swift */,
 			);
 			path = GroupProject;
 			sourceTree = "<group>";
@@ -478,7 +472,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AF806F722A7623C008B6D4E /* DepartmentsTableViewController.swift in Sources */,
-				D4CFC7CE22AA31FE00B13606 /* WatchlistTableView.swift in Sources */,
 				D4CFC7BE22A92B5D00B13606 /* CourseClasses.swift in Sources */,
 				44D6C48622C19B49003F3DB6 /* LoginViewController.swift in Sources */,
 				D4CFC7D022AA332700B13606 /* WatchlistTableViewCell.swift in Sources */,
@@ -486,7 +479,6 @@
 				D4CFC7C622AA05EA00B13606 /* CourseTableViewCell.swift in Sources */,
 				D4CFC7C822AA1ADF00B13606 /* SectionTableViewCell.swift in Sources */,
 				2AC34F1F22A8F555004195C3 /* GetCourseInfo.swift in Sources */,
-				2AF806F922A778A4008B6D4E /* SearchViewController.swift in Sources */,
 				CF3A4E8B22A4765D00C32785 /* AppDelegate.swift in Sources */,
 				2A071F0322AAE40B00878A43 /* WatchlistViewController.swift in Sources */,
 				D4CFC7C422A9DFE900B13606 /* SectionTableViewController.swift in Sources */,

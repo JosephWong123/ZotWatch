@@ -13,7 +13,7 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
 
     var watched = [CourseSection]()
     let refreshControl = UIRefreshControl()
-    @IBOutlet weak var tableView: WatchlistTableView!
+    @IBOutlet weak var tableView: UITableView!
     //should be call every view did load or when refreshed
     
     @IBAction func logout(_ sender: Any) {
@@ -24,6 +24,7 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         loadClasses()
+        self.tableView.reloadData()
         refreshControl.addTarget(self, action: #selector(loadClasses), for: .valueChanged)
         tableView.refreshControl = refreshControl
             
@@ -85,7 +86,7 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
         classQuery.findObjectsInBackground {
             (objects, error) -> Void in
             if (error == nil) {
-                let objs = objects as! [PFObject]
+                let objs = objects!
                 for obj in objs {
                     obj.deleteInBackground()
                 }
@@ -108,7 +109,7 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
         classQuery.findObjectsInBackground {
             (objects, error) -> Void in
             if (error == nil) {
-                let objs = objects as! [PFObject]
+                let objs = objects!
                 for obj in objs {
                     obj.deleteInBackground()
                 }
@@ -122,17 +123,8 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
             object["code"] = index.courseCode
             object["user"] = PFUser.current()!.username
             object["title"] = index.courseName
-            object["code"] = index.courseCode
-            object["days"] = index.days
-            object["time"] = index.time
-            object["instructor"] = index.instructor
-            object["type"] = index.type
-            object["place"] = index.place
-            object["status"] = index.status
-            object["maxSeats"] = index.maxSeats
-            object["seatsTaken"] = index.seatsTaken
-            object["seatsReserved"] = index.seatsReserved
-            object["section"] = index.section
+            object["quarter"] = index.quarter
+            object["year"] = index.year
             object.saveInBackground()
         }
         

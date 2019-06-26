@@ -21,8 +21,10 @@ class CourseSection {
     var maxSeats : Int
     var seatsTaken : Int
     var seatsReserved : Int
+    var quarter: String
+    var year: String
     
-    required init(courseCode: String, type: String, section: String, instructor: String, days: String, time: String, place: String, status: String, maxSeats: Int, seatsTaken: Int, seatsReserved: Int){
+    required init(courseCode: String, type: String, section: String, instructor: String, days: String, time: String, place: String, status: String, maxSeats: Int, seatsTaken: Int, seatsReserved: Int, quarter: String, year: String){
         self.courseCode = courseCode
         self.days = days
         self.time = time
@@ -35,6 +37,8 @@ class CourseSection {
         self.seatsTaken = seatsTaken
         self.seatsReserved = seatsReserved
         self.courseName = "Title"
+        self.quarter = quarter
+        self.year = year
     }
 }
 
