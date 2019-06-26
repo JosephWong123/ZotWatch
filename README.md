@@ -23,7 +23,7 @@ Keeps track of classes that a user is interested in enrolling in at UCI. Makes i
 ### 1. User Stories (Required and Optional)
 
 **Required Must-have Stories**
-
+* Login screen with Parse database to keep track of a user's classes
 * Screen that keeps track of all the classes a user is tracking 
 * Screen that allows a user to search UCI's catalogue in order to add it to their track list
 * Ability to add/remove classes from a user's watch list
@@ -36,10 +36,14 @@ Keeps track of classes that a user is interested in enrolling in at UCI. Makes i
 * User can rearrange the order of their watch list course
 
 ### 2. Screen Archetypes
-
+* Login Screen
+   * User can log in or register for a new account
+   * An error message is displayed if something goes wrong with logging in
 * Watch List Screen
    * User can view the list of classes they are tracking
    * User can add a class to their tracking list
+   * User can remove a class from their tracking list
+   * User can entirely clear the list of classes they are tracking
 * Find Course Screen
    * User can pick a department, year, and quarter to choose a course from
 * Course List Screen
@@ -53,16 +57,18 @@ Keeps track of classes that a user is interested in enrolling in at UCI. Makes i
 ### 3. Navigation
 
 **Tab Navigation** (Tab to Screen)
-
-* Watch list Feed <br> <img src="https://i.imgur.com/uKQp8Sv.png" width=250>
+* Login Screen <br> <img src="https://i.imgur.com/L4eSS7L.png" width=250>
+* Watch list Feed <br> <img src="https://i.imgur.com/KNZN7Tz.png" width=250>
 * Find Course <br> <img src="https://i.imgur.com/jGUfcjd.png" width=250>
 * Choose Course <br> <img src="https://i.imgur.com/jgEOJGq.png" width=250>
 * Choose Section <br> <img src="https://i.imgur.com/JUYVB6V.png" width=250>
 
 **Flow Navigation** (Screen to Screen)
-
+* Login Screen
+    => Watch List
 * Watch List Feed
     => Find Course
+    => Login Screen (through Log Out button)
 * Find Course Screen
     => Choose Course
 * Choose Course Screen
