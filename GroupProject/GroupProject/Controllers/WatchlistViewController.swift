@@ -12,7 +12,7 @@ import Parse
 class WatchlistViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var watched = [CourseSection]()
-    
+    let refreshControl = UIRefreshControl()
     @IBOutlet weak var tableView: WatchlistTableView!
     //should be call every view did load or when refreshed
     
@@ -23,35 +23,44 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadClasses()
+        refreshControl.addTarget(self, action: #selector(loadClasses), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+            
+        // Do any additional setup after loading the view.
+    }
 
+    @objc private func loadClasses() {
         let classQuery = PFQuery(className: "Course")
         classQuery.whereKey("user", equalTo: PFUser.current()!.username!)
         
         classQuery.findObjectsInBackground {
             (objects, error) -> Void in
             if (error == nil) {
-                let objs = objects as! [PFObject]
+                let objs = objects!
                 for obj in objs {
-                    let course = CourseSection(courseCode: obj["code"] as! String, type: obj["type"] as! String, section: obj["section"] as! String, instructor: obj["instructor"] as! String, days: obj["days"] as! String, time: obj["time"] as! String, place: obj["place"] as! String, status: obj["status"] as! String, maxSeats: obj["maxSeats"] as! Int, seatsTaken: obj["seatsTaken"] as! Int, seatsReserved: obj["seatsReserved"] as! Int)
-                    course.courseName = obj["title"] as! String
-                    if !self.watched.contains(where: { (c) -> Bool in
-                        if c.courseCode == course.courseCode {
-                            return true
+                    GetCourseInfo.findByCode(quarter: obj["quarter"] as! String, year: obj["year"] as! String, code: obj["code"] as! String, success: { (section) in
+                        let course = section[0]
+                        course.courseName = obj["title"] as! String
+                        if !self.watched.contains(where: { (c) -> Bool in
+                            if c.courseCode == course.courseCode {
+                                return true
+                            }
+                            return false
+                        }) {
+                            self.watched.append(course)
                         }
-                        return false
-                    }) {
-                        self.watched.append(course)
-                    }
+                    }, failure: { (error) in
+                        print(error)
+                    })
                 }
                 self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
             } else {
                 print("Error: \(error)")
             }
         }
-        
-        // Do any additional setup after loading the view.
     }
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

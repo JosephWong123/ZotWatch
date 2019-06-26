@@ -10,9 +10,64 @@ import Foundation
 class GetCourseInfo {
     static var url = URLComponents(string: "https://www.reg.uci.edu/perl/WebSoc")!
     
+    
     static func findSection(quarter: String, year: String, dept: String, courseNum: String, success: @escaping (([CourseSection]) -> ()), failure: @escaping (Error) -> ()) {
         let data = ["Submit": "Display Text Results", "YearTerm": year + "-" + quarter,
                     "Breadth": "ANY", "Dept": dept, "Division": "ANY", "CourseNum": courseNum]
+        GetCourseInfo.requestHandler(data: data, success: success, failure: failure)
+    }
+    
+    
+    static func findCourses(quarter: String, year: String, dept: String, success: @escaping (([Course]) -> ()),
+                            failure: @escaping ((Error) -> ())) {
+        let data = ["Submit": "Display Text Results", "YearTerm": year + "-" + quarter,
+                    "Breadth": "ANY", "Dept": dept, "Division": "ANY"]
+        
+        url.queryItems = data.map { (key, value) in
+            URLQueryItem(name: key, value: value)
+        }
+        
+        let task = URLSession.shared.dataTask(with: url.url!) { data, response, error in
+            var lines = [String]()
+            var courses = [Course]()
+            if let error = error {
+                failure(error)
+                return
+            }
+            guard let httpResponse = response as? HTTPURLResponse,
+                (200...299).contains(httpResponse.statusCode) else {
+                    return
+            }
+            if let data = data {
+                let string = String(data: data, encoding: .utf8)
+                string!.enumerateLines { line, _ in
+                    lines.append(line)
+                }
+                for var line in lines {
+                    line = line.trimmingCharacters(in: .whitespacesAndNewlines)
+                    var elements : [String] = line.components(separatedBy: "  ")
+                    if (elements[0].lowercased() == dept.lowercased()) && (elements.count >= 3) {
+                        elements = elements.filter { $0 != "" }
+                        courses.append(Course(dept: elements[0], courseNum: elements[1], courseTitle: elements[2]))
+                    }
+                }
+            }
+            success(courses)
+        }
+        task.resume()
+    }
+    
+    static func findByCode(quarter: String, year: String, code: String, success: @escaping (([CourseSection]) -> ()),
+                           failure: @escaping ((Error) -> ())) {
+        let data = ["Submit": "Display Text Results", "YearTerm": year + "-" + quarter,
+                    "Breadth": "ANY", "CourseCodes": code, "Division": "ANY"]
+        url.queryItems = data.map { (key, value) in
+            URLQueryItem(name: key, value: value)
+        }
+        GetCourseInfo.requestHandler(data: data, success: success, failure: failure)
+    }
+    
+    private static func requestHandler(data: [String: String], success: @escaping (([CourseSection]) -> ()), failure: @escaping (Error) -> ()) {
         var sections = [CourseSection]()
         url.queryItems = data.map { (key, value) in
             URLQueryItem(name: key, value: value)
@@ -66,7 +121,7 @@ class GetCourseInfo {
                         }
                         let status = elements[elements.count-1]
                         var seatString : String
-                        let seatsRange = line.range(of: #"(?<!\d)(\d{1,3}\s+)((\d{1,3}\s+)|(\d{1,3}\/\d{1,3}\s+))(\d{1,3}|n\/a)\s+(\d{1,3}\s+){2}"#, options: .regularExpression)
+                        let seatsRange = line.range(of: #"(?<!([A-Z]\s)|(\d))(\d{1,3}\s+)((\d{1,3}\s+)|(\d{1,3}\/\d{1,3}\s+))(\d{1,3}|n\/a)\s+(\d{1,3}\s+){2}"#, options: .regularExpression)
                         seatString = String(line[seatsRange!]).trimmingCharacters(in: .whitespaces)
                         
                         var seatArray : [String] = seatString.components(separatedBy: .whitespaces)
@@ -85,46 +140,6 @@ class GetCourseInfo {
                 
                 success(sections)
             }
-        }
-        task.resume()
-    }
-    
-    
-    static func findCourses(quarter: String, year: String, dept: String, success: @escaping (([Course]) -> ()),
-                            failure: @escaping ((Error) -> ())) {
-        let data = ["Submit": "Display Text Results", "YearTerm": year + "-" + quarter,
-                    "Breadth": "ANY", "Dept": dept, "Division": "ANY"]
-        
-        url.queryItems = data.map { (key, value) in
-            URLQueryItem(name: key, value: value)
-        }
-        
-        let task = URLSession.shared.dataTask(with: url.url!) { data, response, error in
-            var lines = [String]()
-            var courses = [Course]()
-            if let error = error {
-                failure(error)
-                return
-            }
-            guard let httpResponse = response as? HTTPURLResponse,
-                (200...299).contains(httpResponse.statusCode) else {
-                    return
-            }
-            if let data = data {
-                let string = String(data: data, encoding: .utf8)
-                string!.enumerateLines { line, _ in
-                    lines.append(line)
-                }
-                for var line in lines {
-                    line = line.trimmingCharacters(in: .whitespacesAndNewlines)
-                    var elements : [String] = line.components(separatedBy: "  ")
-                    if (elements[0].lowercased() == dept.lowercased()) && (elements.count >= 3) {
-                        elements = elements.filter { $0 != "" }
-                        courses.append(Course(dept: elements[0], courseNum: elements[1], courseTitle: elements[2]))
-                    }
-                }
-            }
-            success(courses)
         }
         task.resume()
     }

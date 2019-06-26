@@ -89,17 +89,19 @@ class SectionAddTableViewController: UITableViewController {
                 object["code"] = index.courseCode
                 object["user"] = user.username
                 object["title"] = index.courseName
-                object["code"] = index.courseCode
-                object["days"] = index.days
-                object["time"] = index.time
-                object["instructor"] = index.instructor
-                object["type"] = index.type
-                object["place"] = index.place
-                object["status"] = index.status
-                object["maxSeats"] = index.maxSeats
-                object["seatsTaken"] = index.seatsTaken
-                object["seatsReserved"] = index.seatsReserved
-                object["section"] = index.section
+//                object["code"] = index.courseCode
+//                object["days"] = index.days
+//                object["time"] = index.time
+//                object["instructor"] = index.instructor
+//                object["type"] = index.type
+//                object["place"] = index.place
+//                object["status"] = index.status
+//                object["maxSeats"] = index.maxSeats
+//                object["seatsTaken"] = index.seatsTaken
+//                object["seatsReserved"] = index.seatsReserved
+//                object["section"] = index.section
+                object["quarter"] = sectionDict["quarter"]
+                object["year"] = sectionDict["year"]
                 object.saveInBackground()
             }
             
